@@ -28,5 +28,5 @@ public:
     int getTension() const { return i_tension; }
     std::string getBirdType() const { return str_birdType; }
 
-    void release() { i_tension = 0; }
+    void release() { i_tension = 0; } 
 };

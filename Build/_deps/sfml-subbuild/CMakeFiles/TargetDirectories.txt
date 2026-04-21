@@ -1,0 +1,3 @@
+H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-subbuild/CMakeFiles/sfml-populate.dir
+H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-subbuild/CMakeFiles/ALL_BUILD.dir
+H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-subbuild/CMakeFiles/ZERO_CHECK.dir

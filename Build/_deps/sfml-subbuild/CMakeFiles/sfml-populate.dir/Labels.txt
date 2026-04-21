@@ -1,0 +1,14 @@
+# Target labels
+ sfml-populate
+# Source files and their labels
+H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-subbuild/CMakeFiles/sfml-populate
+H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-subbuild/CMakeFiles/12d0e644795a4efaefbb930ea7bf095b/sfml-populate.rule
+H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-subbuild/CMakeFiles/cff59acc27b114a745d496680db9e6bd/sfml-populate-complete.rule
+H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-subbuild/CMakeFiles/311d3f03a2406d9ad5feb2214b039907/sfml-populate-build.rule
+H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-subbuild/CMakeFiles/311d3f03a2406d9ad5feb2214b039907/sfml-populate-configure.rule
+H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-subbuild/CMakeFiles/311d3f03a2406d9ad5feb2214b039907/sfml-populate-download.rule
+H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-subbuild/CMakeFiles/311d3f03a2406d9ad5feb2214b039907/sfml-populate-install.rule
+H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-subbuild/CMakeFiles/311d3f03a2406d9ad5feb2214b039907/sfml-populate-mkdir.rule
+H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-subbuild/CMakeFiles/311d3f03a2406d9ad5feb2214b039907/sfml-populate-patch.rule
+H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-subbuild/CMakeFiles/311d3f03a2406d9ad5feb2214b039907/sfml-populate-test.rule
+H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-subbuild/CMakeFiles/311d3f03a2406d9ad5feb2214b039907/sfml-populate-update.rule
