@@ -62,9 +62,52 @@ TEST(Slingshot,Tension_check) {
     FAIL() << "Test Failed";*/
 }
 
-TEST(Slingshot,) {
-    EXPECT_
+class ParamTest : public ::testing::TestWithParam<int> {
+protected:
+    ParamTest() = default;
+    ~ParamTest() = default;
+
+    void SetUp() override {
+        //Code her will be called immediately after the constructer (right before each test
+    }
+
+    void TearDown() override {
+
+        }
+};
+
+TEST_P(ParamTest, SimpleTest) {
+    int i_test = GetParam();
+    std::cout << "Param value::" << i_test << std::endl;
+    EXPECT_GT(i_test, 1);
 }
+
+INSTANTIATE_TEST_SUITE_P(
+    Simple,
+    ParamTest, ::testing::Values(1, 2, 3, 4, 5)
+);
+
+
+TEST(EnemyTest1, XPos_Test) {
+    Enemy e(0);
+    std::cout << "X-Position: " << e.getX() << std::endl;
+    EXPECT_EQ(e.getX(), 0);
+}
+
+TEST(EnemyTest1, YPos_Test) {
+    Enemy e(0);
+    std::cout << "Y-Position: " << e.getY() << std::endl;
+    EXPECT_EQ(e.getY(), 0);
+}
+
+TEST(Slingshot, pullBack_Test) {
+    Slingshot s;
+    EXPECT_TRUE(s.pullBack(30));
+    EXPECT_EQ(s.getTension(), 30);
+}
+
+
+//end of my tests
 
 int main(int argc, char** argv) {
     testing::InitGoogleTest(&argc, argv);

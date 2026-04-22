@@ -6,11 +6,13 @@ class Enemy {
 private:
     int i_health;
     bool b_isDestroyed;
+    int x;
+    int y;
 
 public:
     //Default constructor for an enemy. 
     Enemy() = default;
-    Enemy(int i_initialHealth) : i_health(i_initialHealth), b_isDestroyed(false) {}
+    Enemy(int i_initialHealth) : i_health(i_initialHealth), b_isDestroyed(false), x(0), y(0) {}
 
     //Class functions to be tested.
     void takeDamage(int damage) {
@@ -21,7 +23,11 @@ public:
             b_isDestroyed = true;
         }
     }
+    
 
     int getHealth() const { return i_health; }
     bool checkIfPopped() const { return b_isDestroyed; }
+    int getX() const { return x; }//gets the x pos
+    int getY() const { return y; }//gets the y pos
+
 };
