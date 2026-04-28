@@ -4,6 +4,9 @@
     <ClCompile Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\DynamicObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\Enemy.h">
@@ -19,6 +22,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\include\StaticObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Pig.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

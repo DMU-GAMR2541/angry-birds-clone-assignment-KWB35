@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <box2d/box2d.h>
 #include <iostream>
+#include "Pig.h"
 
 int main() {
     // --- 1. WINDOW SETUP ---
@@ -80,12 +81,16 @@ int main() {
     b2FixtureDef b2_ballFixture;
     b2_ballFixture.shape = &b2_circleShape;
     b2_ballFixture.density = 1.0f;
-    b2_ballFixture.restitution = 0.5f; // Bounciness
+    b2_ballFixture.restitution = 0.5f; // Bounciness 
     b2_ballBody->CreateFixture(&b2_ballFixture);
 
     sf::CircleShape sf_ballVisual(15.0f);
     sf_ballVisual.setOrigin(15.0f, 15.0f);
     sf_ballVisual.setFillColor(sf::Color::Yellow);
+
+    //Makes a Pig
+    Pig PigEnemy("../assets/Ang_Birds/sprite_1.png");
+
 
     // --- 7. MAIN LOOP ---
     while (window.isOpen()) {
@@ -133,6 +138,7 @@ int main() {
         window.draw(sf_wallVisual);
         window.draw(sf_plankVisual);
         window.draw(sf_ballVisual);
+        PigEnemy.render(window);
 
         window.display();
     }
