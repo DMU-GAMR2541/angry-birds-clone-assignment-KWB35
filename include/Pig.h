@@ -8,5 +8,5 @@ private:
 public:
 	Pig() = default;
 
-	Pig(std::string PigLoc,sf::IntRect PigIntRect, sf::Vector2f PigStartPos, b2World &World) : DynamicObject(PigLoc, PigIntRect, PigStartPos, World) {};//passed so can use things from dynamic object
+	Pig(std::string PigLoc,sf::IntRect PigIntRect, b2Vec2 PigStartPos, b2World &World, float PigDensity, float PigFriction, float PigRestitution) : DynamicObject(PigLoc, PigIntRect, PigStartPos, World, PigDensity, PigFriction, PigRestitution) {};//passed so can use things from dynamic object
 };

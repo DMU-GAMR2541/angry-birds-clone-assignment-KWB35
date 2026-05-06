@@ -24,7 +24,7 @@ public:
 	virtual ~DynamicObject() = default;
 
 	//overload constructor
-	DynamicObject(std::string DynConstrutor, sf::IntRect DynIntRect, sf::Vector2f DynStartPos, b2World &World);
+	DynamicObject(std::string DynConstrutor, sf::IntRect DynIntRect, b2Vec2 DynStartPos, b2World &World, float Density, float Friction, float Restitution);
 
 	void render(sf::RenderWindow& GObjRenderWindow) override;
 	void update() override;

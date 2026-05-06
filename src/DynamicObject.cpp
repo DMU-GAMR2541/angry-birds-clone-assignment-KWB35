@@ -2,7 +2,7 @@
 
 
 
-DynamicObject::DynamicObject(std::string DynConstrutor,sf::IntRect DynIntRect,sf::Vector2f DynStartPos,b2World &World)
+DynamicObject::DynamicObject(std::string DynConstrutor,sf::IntRect DynIntRect,b2Vec2 DynStartPos,b2World &World, float Density, float Friction, float Restitution)
 {
 	DynTextureLoc = DynConstrutor;
 
@@ -11,14 +11,14 @@ DynamicObject::DynamicObject(std::string DynConstrutor,sf::IntRect DynIntRect,sf
 	}
 	
 	DynSprite.setTexture(DynTexture);
-	DynSprite.setPosition(DynStartPos);
+	DynSprite.setPosition(200.0f, 200.0f);
 	
 	DynSprite.setOrigin(DynSprite.getGlobalBounds().height / 2, DynSprite.getGlobalBounds().width / 2);
 
 	b2_dynamicCircle.m_radius = 0.5;
 
 	b2_bodyDef.type = b2_dynamicBody;
-	b2_bodyDef.position = b2Vec2(200.0f / Scale, 200.0f /Scale);
+	b2_bodyDef.position = DynStartPos;
 	//Create the body in the world
 	b2_body = World.CreateBody(&b2_bodyDef);
 

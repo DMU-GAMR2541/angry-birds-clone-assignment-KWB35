@@ -89,7 +89,7 @@ int main() {
     sf_ballVisual.setOrigin(15.0f, 15.0f);
     sf_ballVisual.setFillColor(sf::Color::Yellow);
 
-    /*//Adding physics to the sprites
+    //Adding physics to the sprites
     b2Vec2 b2_pos; //The position of the object in the game world
     b2BodyDef b2_bodyDef; //The body definition for the object in the Box2D physics engine
     b2FixtureDef b2_fixtureDef; //The fixture definition for the object in the Box2D physics engine
@@ -98,25 +98,19 @@ int main() {
 
     b2CircleShape b2_dynamicCircle; //The shape of the object in the Box2D physics engine defined as a circle
 
-    b2_bodyDef.type = b2_dynamicBody;
-    b2_bodyDef.position = b2_pos;
-    //Create the body in the world
-    b2_body = world.CreateBody(&b2_bodyDef);
 
     //setup fixture
-    b2_fixtureDef.shape = &b2_dynamicCircle;
-    b2_fixtureDef.density = 1.0f;
-    b2_fixtureDef.friction = 3.0f;
-    b2_fixtureDef.restitution = 0.5f;
+    //b2_fixtureDef.shape = &b2_dynamicCircle;
+    //b2_fixtureDef.density = 1.0f;
+    //b2_fixtureDef.friction = 3.0f;
+    //b2_fixtureDef.restitution = 0.5f;
 
-    //attach to body
-    b2_body->CreateFixture(&b2_fixtureDef);*/
 
     //Makes a Pig
-    Pig PigEnemy("../assets/Ang_Birds/sprite_1.png", sf::IntRect(0, 0, 60, 52), sf::Vector2f(250.0f, 200.0f),world);
+    Pig PigEnemy("../assets/Ang_Birds/sprite_1.png", sf::IntRect(0, 0, 60, 52), b2Vec2(250.0f / SCALE, 200.0f / SCALE),world, 1.0f, 3.0f, 0.5f); //sets the pigs spawning position, properly displays the sprite and sets keys stats
 
     //Makes a Bird
-    Bird BirdEnemy("../assets/Ang_Birds/Adapted_Birds.png", sf::IntRect(940, 196, 80, 80), sf::Vector2f(100.0f, 100.0f),world);
+    Bird Bird("../assets/Ang_Birds/Adapted_Birds.png", sf::IntRect(940, 196, 80, 80), b2Vec2(100.0f / SCALE, 100.0f / SCALE),world, 1.0f, 3.0f, 0.5f);
 
 
     // --- 7. MAIN LOOP ---
@@ -162,7 +156,7 @@ int main() {
 
         //Update Sprites
         PigEnemy.UpdateSprite();
-        BirdEnemy.UpdateSprite();
+        Bird.UpdateSprite();
 
         //Render all of the content at each frame. Remember you need to clear the screen each iteration or artefacts remain.
         window.clear(sf::Color(135, 206, 235)); // Sky Blue
@@ -172,7 +166,7 @@ int main() {
         window.draw(sf_plankVisual);
         window.draw(sf_ballVisual);
         PigEnemy.render(window);
-        BirdEnemy.render(window);
+        Bird.render(window);
 
         window.display();
     }

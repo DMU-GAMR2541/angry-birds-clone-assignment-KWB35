@@ -9,5 +9,5 @@ private:
 public:
 	Bird() = default;
 
-	Bird(std::string BirdLoc, sf::IntRect BirdIntRect, sf::Vector2f BirdStartPos, b2World& World) : DynamicObject(BirdLoc, BirdIntRect, BirdStartPos, World) {};//passed so can use things from dynamic object
+	Bird(std::string BirdLoc, sf::IntRect BirdIntRect, b2Vec2 BirdStartPos, b2World& World, float BirdDensity, float BirdFriction, float BirdRestitution) : DynamicObject(BirdLoc, BirdIntRect, BirdStartPos, World, BirdDensity, BirdFriction, BirdRestitution) {};//passed so can use things from dynamic object
 };
