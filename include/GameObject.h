@@ -22,5 +22,7 @@ public:
 	
 	virtual void render(sf::RenderWindow& GObjRenderWindow) = 0;
 	virtual void update() = 0; //fully virtual functions
-	
+
+protected:
+	const float Scale = 30.0f;
 };

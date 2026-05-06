@@ -1,15 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <ClCompile Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\src\DynamicObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\test_src\RunTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\DynamicObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\Enemy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\GameObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\Header.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\Pig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\Slingshot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\StaticObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

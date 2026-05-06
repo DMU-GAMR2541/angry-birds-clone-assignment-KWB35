@@ -88,8 +88,31 @@ int main() {
     sf_ballVisual.setOrigin(15.0f, 15.0f);
     sf_ballVisual.setFillColor(sf::Color::Yellow);
 
+    /*//Adding physics to the sprites
+    b2Vec2 b2_pos; //The position of the object in the game world
+    b2BodyDef b2_bodyDef; //The body definition for the object in the Box2D physics engine
+    b2FixtureDef b2_fixtureDef; //The fixture definition for the object in the Box2D physics engine
+
+    b2Body* b2_body; //the body for the object in the box2D physics engine
+
+    b2CircleShape b2_dynamicCircle; //The shape of the object in the Box2D physics engine defined as a circle
+
+    b2_bodyDef.type = b2_dynamicBody;
+    b2_bodyDef.position = b2_pos;
+    //Create the body in the world
+    b2_body = world.CreateBody(&b2_bodyDef);
+
+    //setup fixture
+    b2_fixtureDef.shape = &b2_dynamicCircle;
+    b2_fixtureDef.density = 1.0f;
+    b2_fixtureDef.friction = 3.0f;
+    b2_fixtureDef.restitution = 0.5f;
+
+    //attach to body
+    b2_body->CreateFixture(&b2_fixtureDef);*/
+
     //Makes a Pig
-    Pig PigEnemy("../assets/Ang_Birds/sprite_1.png");
+    Pig PigEnemy("../assets/Ang_Birds/sprite_1.png", world);
 
 
     // --- 7. MAIN LOOP ---
@@ -130,6 +153,9 @@ int main() {
         // Dynamic wall.
         sf_plankVisual.setPosition(b2_plankBody->GetPosition().x * SCALE, b2_plankBody->GetPosition().y * SCALE);
         sf_plankVisual.setRotation(b2_plankBody->GetAngle() * (180.0f / PI));
+
+        //Update Sprites
+        PigEnemy.UpdateSprite();
 
         //Render all of the content at each frame. Remember you need to clear the screen each iteration or artefacts remain.
         window.clear(sf::Color(135, 206, 235)); // Sky Blue
