@@ -2,6 +2,7 @@
 #include <box2d/box2d.h>
 #include <iostream>
 #include "Pig.h"
+#include "Bird.h"
 
 int main() {
     // --- 1. WINDOW SETUP ---
@@ -112,7 +113,10 @@ int main() {
     b2_body->CreateFixture(&b2_fixtureDef);*/
 
     //Makes a Pig
-    Pig PigEnemy("../assets/Ang_Birds/sprite_1.png", world);
+    Pig PigEnemy("../assets/Ang_Birds/sprite_1.png", sf::IntRect(0, 0, 60, 52), sf::Vector2f(250.0f, 200.0f),world);
+
+    //Makes a Bird
+    Bird BirdEnemy("../assets/Ang_Birds/Adapted_Birds.png", sf::IntRect(940, 196, 80, 80), sf::Vector2f(100.0f, 100.0f),world);
 
 
     // --- 7. MAIN LOOP ---
@@ -136,6 +140,8 @@ int main() {
                     std::cout << "Firing!!!!" << std::endl;
                 }
             }
+
+
         }
 
         // Update Physics
@@ -156,6 +162,7 @@ int main() {
 
         //Update Sprites
         PigEnemy.UpdateSprite();
+        BirdEnemy.UpdateSprite();
 
         //Render all of the content at each frame. Remember you need to clear the screen each iteration or artefacts remain.
         window.clear(sf::Color(135, 206, 235)); // Sky Blue
@@ -165,6 +172,7 @@ int main() {
         window.draw(sf_plankVisual);
         window.draw(sf_ballVisual);
         PigEnemy.render(window);
+        BirdEnemy.render(window);
 
         window.display();
     }

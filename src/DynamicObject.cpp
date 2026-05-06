@@ -2,17 +2,18 @@
 
 
 
-DynamicObject::DynamicObject(std::string DynConstrutor,b2World &World)
+DynamicObject::DynamicObject(std::string DynConstrutor,sf::IntRect DynIntRect,sf::Vector2f DynStartPos,b2World &World)
 {
 	DynTextureLoc = DynConstrutor;
 
-	if (!DynTexture.loadFromFile(DynTextureLoc , sf::IntRect(0, 0, 60, 52) )) {
+	if (!DynTexture.loadFromFile(DynTextureLoc , DynIntRect)) {
 		std::cout << "not loaded" << std::endl;
 	}
-
-	DynSprite.setTexture(DynTexture);
-	DynSprite.setPosition(sf::Vector2f(200.0f, 200.0f));
 	
+	DynSprite.setTexture(DynTexture);
+	DynSprite.setPosition(DynStartPos);
+	
+	DynSprite.setOrigin(DynSprite.getGlobalBounds().height / 2, DynSprite.getGlobalBounds().width / 2);
 
 	b2_dynamicCircle.m_radius = 0.5;
 
@@ -42,7 +43,7 @@ void DynamicObject::update()
 void DynamicObject::UpdateSprite() 
 {
 	DynSprite.setPosition(sf::Vector2(b2_body->GetPosition().x * Scale, b2_body->GetPosition().y * Scale));
-
+	
 }
 
 
