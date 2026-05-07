@@ -338,7 +338,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\DynamicObject.h" />
     <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\Enemy.h" />
     <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\GameObject.h" />
-    <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\Header.h" />
     <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\Pig.h" />
     <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\Slingshot.h" />
     <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\StaticObject.h" />

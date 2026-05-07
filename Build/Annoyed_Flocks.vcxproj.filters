@@ -18,9 +18,6 @@
     <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\Header.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\Pig.h">
       <Filter>Header Files</Filter>
     </ClInclude>

@@ -15,6 +15,12 @@ int main() {
     //Can set a definition for PI.
     const float PI = 3.1415927;
 
+    //Sets the position for the bird to be reset
+    const b2Vec2 SlingshotPos = b2Vec2(100.0f / SCALE , 500.0f / SCALE);
+
+    //Have the bird reset back to this velocity
+    const b2Vec2 ResetVel = b2Vec2(0, 0);
+
     //setup world.
     b2Vec2 b2_gravity(0.0f, 9.8f); // Earth-like gravity
     b2World world(b2_gravity);
@@ -107,10 +113,12 @@ int main() {
 
 
     //Makes a Pig
-    Pig PigEnemy("../assets/Ang_Birds/sprite_1.png", sf::IntRect(0, 0, 60, 52), b2Vec2(250.0f / SCALE, 200.0f / SCALE),world, 1.0f, 3.0f, 0.5f); //sets the pigs spawning position, properly displays the sprite and sets keys stats
+    Pig PigEnemy1("../assets/Ang_Birds/sprite_1.png", sf::IntRect(0, 0, 60, 52), b2Vec2(250.0f / SCALE, 200.0f / SCALE),world, 1.0f, 3.0f, 0.5f, 0.7f); //sets the pigs spawning position, properly displays the sprite and sets keys stats
+
+    Pig PigEnemy2("../assets/Ang_Birds/sprite_2.png", sf::IntRect(5, 0, 85, 90), b2Vec2(600.0f / SCALE, 200.0f / SCALE), world, 0.5f, 3.0f, 0.5f, 1.1f);
 
     //Makes a Bird
-    Bird Bird("../assets/Ang_Birds/Adapted_Birds.png", sf::IntRect(940, 196, 80, 80), b2Vec2(100.0f / SCALE, 100.0f / SCALE),world, 1.0f, 3.0f, 0.5f);
+    Bird Bird1("../assets/Ang_Birds/Adapted_Birds.png", sf::IntRect(940, 196, 80, 80), b2Vec2(100.0f / SCALE, 500.0f / SCALE),world, 1.0f, 3.0f, 0.5f, 1.3f);//defines the birds variables 
 
 
     // --- 7. MAIN LOOP ---
@@ -124,18 +132,27 @@ int main() {
             if (event.type == sf::Event::KeyPressed) {
                 if (event.key.code == sf::Keyboard::Space) {
                     // Reset position of the ball so that it can be fired again from its original poisition.
-                    b2_ballBody->SetTransform(b2Vec2(100.0f / SCALE, 500.0f / SCALE), 0);
-                    b2_ballBody->SetLinearVelocity(b2Vec2(0, 0));
-                    b2_ballBody->SetAngularVelocity(0);
+                   // b2_ballBody->SetTransform(b2Vec2(100.0f / SCALE, 500.0f / SCALE), 0);
+                   // b2_ballBody->SetLinearVelocity(b2Vec2(0, 0));
+                    //b2_ballBody->SetAngularVelocity(0);
 
                     // Apply impulse (X-axis, Y-axis) Negative Y is UP in Box2D because gravity is positive.
-                    b2_ballBody->ApplyLinearImpulse(b2Vec2(5.0f, -5.0f), b2_ballBody->GetWorldCenter(), true);
+                   // b2_ballBody->ApplyLinearImpulse(b2Vec2(5.0f, -5.0f), b2_ballBody->GetWorldCenter(), true);
 
-                    std::cout << "Firing!!!!" << std::endl;
+                    //std::cout << "Firing!!!!" << std::endl;
+
+                    //Bird1.GetBody().SetTransform(b2Vec2(100.0f / SCALE, 500.0f / SCALE), 0);
+                    //Bird1.GetBody().SetLinearVelocity(b2Vec2(0, 0));
+                    //Bird1.GetBody().SetAngularVelocity(0);
+
+                    //Bird1.GetBody().ApplyLinearImpulse(b2Vec2(10.0f, -5.0f), Bird1.GetBody().GetWorldCenter(), true);
+
+                    Bird1.setVelocity(ResetVel);
+                    Bird1.setPosition(SlingshotPos,0);
+                    
+                    Bird1.impulse(b2Vec2(60.0f, -40.0f), true);
                 }
             }
-
-
         }
 
         // Update Physics
@@ -155,8 +172,9 @@ int main() {
         sf_plankVisual.setRotation(b2_plankBody->GetAngle() * (180.0f / PI));
 
         //Update Sprites
-        PigEnemy.UpdateSprite();
-        Bird.UpdateSprite();
+        PigEnemy1.UpdateSprite();
+        Bird1.UpdateSprite();
+        PigEnemy2.UpdateSprite();
 
         //Render all of the content at each frame. Remember you need to clear the screen each iteration or artefacts remain.
         window.clear(sf::Color(135, 206, 235)); // Sky Blue
@@ -165,8 +183,9 @@ int main() {
         window.draw(sf_wallVisual);
         window.draw(sf_plankVisual);
         window.draw(sf_ballVisual);
-        PigEnemy.render(window);
-        Bird.render(window);
+        PigEnemy1.render(window);
+        Bird1.render(window);
+        PigEnemy2.render(window);
 
         window.display();
     }
