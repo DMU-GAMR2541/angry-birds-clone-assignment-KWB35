@@ -31,11 +31,11 @@ public:
 
 	void impulse(b2Vec2 b2_impulse, bool awake) 
 	{
-		b2_body->ApplyLinearImpulseToCenter(b2_impulse, awake);
+		b2_body->ApplyLinearImpulseToCenter(b2_impulse, awake); //Adds impulse to an object
 	}
 
-	void setPosition(b2Vec2 ResetPos,float Angle) { b2_body->SetTransform(ResetPos, Angle); };
-	void setVelocity(b2Vec2 ResetVel) { b2_body->SetLinearVelocity(ResetVel); };
+	void setPosition(b2Vec2 ResetPos,float Angle) { b2_body->SetTransform(ResetPos, Angle); }; //allows for an objects position to be reset 
+	void setVelocity(b2Vec2 ResetVel) { b2_body->SetLinearVelocity(ResetVel); };//allows for an objects velocity to be reset
 
 
 protected:

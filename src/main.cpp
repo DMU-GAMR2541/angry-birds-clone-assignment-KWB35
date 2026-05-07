@@ -139,8 +139,6 @@ int main() {
                     // Apply impulse (X-axis, Y-axis) Negative Y is UP in Box2D because gravity is positive.
                    // b2_ballBody->ApplyLinearImpulse(b2Vec2(5.0f, -5.0f), b2_ballBody->GetWorldCenter(), true);
 
-                    //std::cout << "Firing!!!!" << std::endl;
-
                     //Bird1.GetBody().SetTransform(b2Vec2(100.0f / SCALE, 500.0f / SCALE), 0);
                     //Bird1.GetBody().SetLinearVelocity(b2Vec2(0, 0));
                     //Bird1.GetBody().SetAngularVelocity(0);
@@ -151,6 +149,8 @@ int main() {
                     Bird1.setPosition(SlingshotPos,0);
                     
                     Bird1.impulse(b2Vec2(60.0f, -40.0f), true);
+
+                    std::cout << "Firing!!!!" << std::endl;
                 }
             }
         }
