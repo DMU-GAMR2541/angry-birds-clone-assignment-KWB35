@@ -4,6 +4,10 @@
 
 class Pig : public virtual DynamicObject {
 private:
+
+protected:
+	float const Health = 2;
+	
 	
 public:
 	Pig() = default;

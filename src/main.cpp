@@ -3,6 +3,8 @@
 #include <iostream>
 #include "Pig.h"
 #include "Bird.h"
+#include <list>
+
 
 int main() {
     // --- 1. WINDOW SETUP ---
@@ -25,6 +27,8 @@ int main() {
 
     //Have the bird reset back to this velocity
     const b2Vec2 ResetVel = b2Vec2(0, 0);
+
+
 
     //setup world.
     b2Vec2 b2_gravity(0.0f, 9.8f); // Earth-like gravity
@@ -116,15 +120,20 @@ int main() {
     //b2_fixtureDef.friction = 3.0f;
     //b2_fixtureDef.restitution = 0.5f;
 
+    std::list<std::unique_ptr<Pig>> PigVariant;
+    for (int i = 0; i < 5; i++)
+    {
+        PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/sprite_1.png", sf::IntRect(0, 0, 60, 52), b2Vec2((100.0f * i) / SCALE, 100.0f / SCALE), world, 1.0f, 4.0f, 0.5f, 0.5f));
+    }
 
     //Makes the Pigs
-    Pig PigEnemy1("../assets/Ang_Birds/sprite_1.png", sf::IntRect(0, 0, 60, 52), b2Vec2(250.0f / SCALE, 200.0f / SCALE),world, 1.0f, 3.0f, 0.5f, 0.7f); //sets the pigs spawning position, properly displays the sprite and sets keys stats
+   // Pig PigEnemy1("../assets/Ang_Birds/sprite_1.png", sf::IntRect(0, 0, 60, 52), b2Vec2(250.0f / SCALE, 200.0f / SCALE),world, 1.0f, 4.0f, 0.5f, 0.5f); //sets the pigs spawning position, properly displays the sprite and sets keys stats
 
-    Pig PigEnemy2("../assets/Ang_Birds/sprite_2.png", sf::IntRect(5, 0, 85, 90), b2Vec2(600.0f / SCALE, 200.0f / SCALE), world, 0.5f, 3.0f, 0.5f, 1.1f);
+    Pig PigEnemy2("../assets/Ang_Birds/sprite_2.png", sf::IntRect(5, 0, 85, 90), b2Vec2(600.0f / SCALE, 200.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 0.8f);
 
 
     //Makes a Bird
-    Bird Bird1("../assets/Ang_Birds/Adapted_Birds.png", sf::IntRect(940, 196, 80, 80), b2Vec2(100.0f / SCALE, 500.0f / SCALE),world, 1.0f, 3.0f, 0.5f, 1.3f);//defines the birds variables 
+    Bird Bird1("../assets/Ang_Birds/Adapted_Birds.png", sf::IntRect(940, 196, 80, 80), b2Vec2(100.0f / SCALE, 500.0f / SCALE),world, 1.0f, 4.0f, 0.5f, 1.0f);//defines the birds variables 
 
 
     // --- 7. MAIN LOOP ---
@@ -141,7 +150,7 @@ int main() {
             if (event.type == sf::Event::Closed)
                 window.close();
 
-            // INPUT HANDLING: Press SPACE to launch
+            // INPUT HANDLING: Press Left Click to launch
             if (event.type == sf::Event::MouseButtonPressed) {
                 if (event.key.code == sf::Mouse::Left) {
                     // Reset position of the ball so that it can be fired again from its original poisition.
@@ -161,11 +170,15 @@ int main() {
                     Bird1.setVelocity(ResetVel);
                     Bird1.setPosition(SlingshotPos,0);
                     
-                    Bird1.impulse(b2Vec2(MousePosX / 5, - MousePosY / 8), true);
+
+                    
+                    Bird1.impulse(b2Vec2(MousePosX / 5, - MousePosY / 8), true); //Gets mouse position and sets the impulse to it divided by the specified scale
 
                     std::cout << "Firing!!!!" << std::endl;
                 }
             }
+
+            
         }
 
         // Update Physics
@@ -185,7 +198,7 @@ int main() {
         sf_plankVisual.setRotation(b2_plankBody->GetAngle() * (180.0f / PI));
 
         //Update Sprites
-        PigEnemy1.UpdateSprite();
+        //PigEnemy1.UpdateSprite();
         Bird1.UpdateSprite();
         PigEnemy2.UpdateSprite();
 
@@ -196,9 +209,15 @@ int main() {
         window.draw(sf_wallVisual);
         window.draw(sf_plankVisual);
         //window.draw(sf_ballVisual);
-        PigEnemy1.render(window);
+        //PigEnemy1.render(window);
         Bird1.render(window);
         PigEnemy2.render(window);
+
+        for (std::unique_ptr<Pig>& p : PigVariant) 
+        {
+            p->UpdateSprite();
+            p->render(window);
+        }
 
         window.display();
     }

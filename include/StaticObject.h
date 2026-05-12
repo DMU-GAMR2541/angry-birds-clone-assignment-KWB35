@@ -7,6 +7,7 @@ class StaticObject : public virtual GameObject
 {
 private:
 
+
 public:
 	//Default constructor
 	StaticObject() = default;

@@ -36,6 +36,7 @@ public:
 
 	void setPosition(b2Vec2 ResetPos,float Angle) { b2_body->SetTransform(ResetPos, Angle); }; //allows for an objects position to be reset 
 	void setVelocity(b2Vec2 ResetVel) { b2_body->SetLinearVelocity(ResetVel); };//allows for an objects velocity to be reset
+	void getPosition() { b2_body->GetPosition(); };
 
 
 protected:

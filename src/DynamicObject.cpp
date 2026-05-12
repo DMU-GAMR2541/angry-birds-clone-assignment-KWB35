@@ -12,6 +12,7 @@ DynamicObject::DynamicObject(std::string DynConstrutor,sf::IntRect DynIntRect,b2
 	
 	DynSprite.setTexture(DynTexture);
 	DynSprite.setPosition(200.0f, 200.0f);
+	DynSprite.setScale(0.75,0.75);
 	
 	DynSprite.setOrigin(DynSprite.getLocalBounds().height / 2, DynSprite.getLocalBounds().width / 2); //Sets the origin to the center of the sprite
 
@@ -24,9 +25,9 @@ DynamicObject::DynamicObject(std::string DynConstrutor,sf::IntRect DynIntRect,b2
 
 	//setup fixtures
 	b2_fixtureDef.shape = &b2_dynamicCircle;
-	b2_fixtureDef.density = 1.0f;
-	b2_fixtureDef.friction = 0.3f;
-	b2_fixtureDef.restitution = 0.5f;  
+	b2_fixtureDef.density = Density;
+	b2_fixtureDef.friction = Friction;
+	b2_fixtureDef.restitution = Restitution;
 
 	b2_body->CreateFixture(&b2_fixtureDef);
 }
@@ -45,6 +46,8 @@ void DynamicObject::UpdateSprite()
 	DynSprite.setPosition(sf::Vector2(b2_body->GetPosition().x * Scale, b2_body->GetPosition().y * Scale));
 	
 }
+
+
 
 
 
