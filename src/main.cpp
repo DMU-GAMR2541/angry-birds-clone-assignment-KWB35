@@ -120,16 +120,18 @@ int main() {
     //b2_fixtureDef.friction = 3.0f;
     //b2_fixtureDef.restitution = 0.5f;
 
+    //Makes the pigs 
     std::list<std::unique_ptr<Pig>> PigVariant;
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 3; i++)
     {
-        PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/sprite_1.png", sf::IntRect(0, 0, 60, 52), b2Vec2((100.0f * i) / SCALE, 100.0f / SCALE), world, 1.0f, 4.0f, 0.5f, 0.5f));
+        PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/sprite_1.png", sf::IntRect(0, 0, 60, 52), b2Vec2(((250.0f * i) + 250) / SCALE, 100.0f / SCALE), world, 1.0f, 4.0f, 0.5f, 0.5f));
+        PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/sprite_2.png", sf::IntRect(5, 0, 85, 90), b2Vec2(((150.0f * i) + 400) / SCALE, 50.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 0.8f));
     }
 
-    //Makes the Pigs
+    
    // Pig PigEnemy1("../assets/Ang_Birds/sprite_1.png", sf::IntRect(0, 0, 60, 52), b2Vec2(250.0f / SCALE, 200.0f / SCALE),world, 1.0f, 4.0f, 0.5f, 0.5f); //sets the pigs spawning position, properly displays the sprite and sets keys stats
 
-    Pig PigEnemy2("../assets/Ang_Birds/sprite_2.png", sf::IntRect(5, 0, 85, 90), b2Vec2(600.0f / SCALE, 200.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 0.8f);
+    //Pig PigEnemy2("../assets/Ang_Birds/sprite_2.png", sf::IntRect(5, 0, 85, 90), b2Vec2(600.0f / SCALE, 200.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 0.8f);
 
 
     //Makes a Bird
@@ -197,10 +199,9 @@ int main() {
         sf_plankVisual.setPosition(b2_plankBody->GetPosition().x * SCALE, b2_plankBody->GetPosition().y * SCALE);
         sf_plankVisual.setRotation(b2_plankBody->GetAngle() * (180.0f / PI));
 
-        //Update Sprites
-        //PigEnemy1.UpdateSprite();
+
         Bird1.UpdateSprite();
-        PigEnemy2.UpdateSprite();
+
 
         //Render all of the content at each frame. Remember you need to clear the screen each iteration or artefacts remain.
         window.clear(sf::Color(135, 206, 235)); // Sky Blue
@@ -208,11 +209,9 @@ int main() {
         window.draw(sf_groundVisual);
         window.draw(sf_wallVisual);
         window.draw(sf_plankVisual);
-        //window.draw(sf_ballVisual);
-        //PigEnemy1.render(window);
         Bird1.render(window);
-        PigEnemy2.render(window);
 
+        //Renders and updates the pig variants 
         for (std::unique_ptr<Pig>& p : PigVariant) 
         {
             p->UpdateSprite();
