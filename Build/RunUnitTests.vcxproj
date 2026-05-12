@@ -332,6 +332,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\Bird.h" />
     <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\DynamicObject.h" />
     <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\Enemy.h" />
     <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\GameObject.h" />

@@ -15,6 +15,11 @@ int main() {
     //Can set a definition for PI.
     const float PI = 3.1415927;
 
+    //Creates the mouse position variable
+    float MousePosX;
+    float MousePosY;
+    
+
     //Sets the position for the bird to be reset
     const b2Vec2 SlingshotPos = b2Vec2(100.0f / SCALE , 500.0f / SCALE);
 
@@ -76,7 +81,7 @@ int main() {
     sf_plankVisual.setOrigin(10.0f, 60.0f);
     sf_plankVisual.setFillColor(sf::Color(139, 69, 19)); // Brown
 
-    //Create a ball that is fired when space is pressed. We need to first have a dynamic ball to do it.
+    /*//Create a ball that is fired when space is pressed.We need to first have a dynamic ball to do it.
     b2BodyDef b2_ballDef;
     b2_ballDef.type = b2_dynamicBody;
     b2_ballDef.position.Set(100.0f / SCALE, 500.0f / SCALE);
@@ -93,7 +98,7 @@ int main() {
 
     sf::CircleShape sf_ballVisual(15.0f);
     sf_ballVisual.setOrigin(15.0f, 15.0f);
-    sf_ballVisual.setFillColor(sf::Color::Yellow);
+    sf_ballVisual.setFillColor(sf::Color::Yellow);*/
 
     //Adding physics to the sprites
     b2Vec2 b2_pos; //The position of the object in the game world
@@ -112,10 +117,11 @@ int main() {
     //b2_fixtureDef.restitution = 0.5f;
 
 
-    //Makes a Pig
+    //Makes the Pigs
     Pig PigEnemy1("../assets/Ang_Birds/sprite_1.png", sf::IntRect(0, 0, 60, 52), b2Vec2(250.0f / SCALE, 200.0f / SCALE),world, 1.0f, 3.0f, 0.5f, 0.7f); //sets the pigs spawning position, properly displays the sprite and sets keys stats
 
     Pig PigEnemy2("../assets/Ang_Birds/sprite_2.png", sf::IntRect(5, 0, 85, 90), b2Vec2(600.0f / SCALE, 200.0f / SCALE), world, 0.5f, 3.0f, 0.5f, 1.1f);
+
 
     //Makes a Bird
     Bird Bird1("../assets/Ang_Birds/Adapted_Birds.png", sf::IntRect(940, 196, 80, 80), b2Vec2(100.0f / SCALE, 500.0f / SCALE),world, 1.0f, 3.0f, 0.5f, 1.3f);//defines the birds variables 
@@ -125,12 +131,19 @@ int main() {
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
+
+            if (event.type == sf::Event::MouseMoved) 
+            {
+                MousePosX = (event.mouseMove.x);
+                MousePosY = (event.mouseMove.y);
+            }
+
             if (event.type == sf::Event::Closed)
                 window.close();
 
             // INPUT HANDLING: Press SPACE to launch
-            if (event.type == sf::Event::KeyPressed) {
-                if (event.key.code == sf::Keyboard::Space) {
+            if (event.type == sf::Event::MouseButtonPressed) {
+                if (event.key.code == sf::Mouse::Left) {
                     // Reset position of the ball so that it can be fired again from its original poisition.
                    // b2_ballBody->SetTransform(b2Vec2(100.0f / SCALE, 500.0f / SCALE), 0);
                    // b2_ballBody->SetLinearVelocity(b2Vec2(0, 0));
@@ -148,7 +161,7 @@ int main() {
                     Bird1.setVelocity(ResetVel);
                     Bird1.setPosition(SlingshotPos,0);
                     
-                    Bird1.impulse(b2Vec2(60.0f, -40.0f), true);
+                    Bird1.impulse(b2Vec2(MousePosX / 5, - MousePosY / 8), true);
 
                     std::cout << "Firing!!!!" << std::endl;
                 }
@@ -160,8 +173,8 @@ int main() {
 
         //All of the visuals needs to be synced with the physics.
 
-        sf_ballVisual.setPosition(b2_ballBody->GetPosition().x * SCALE, b2_ballBody->GetPosition().y * SCALE);
-        sf_ballVisual.setRotation(b2_ballBody->GetAngle() * (180.0f / PI));
+       // sf_ballVisual.setPosition(b2_ballBody->GetPosition().x * SCALE, b2_ballBody->GetPosition().y * SCALE);
+       // sf_ballVisual.setRotation(b2_ballBody->GetAngle() * (180.0f / PI));
 
         //Static objects usually don't move, but we set the position once.
         sf_groundVisual.setPosition(b2_groundBody->GetPosition().x * SCALE, b2_groundBody->GetPosition().y * SCALE);
@@ -182,7 +195,7 @@ int main() {
         window.draw(sf_groundVisual);
         window.draw(sf_wallVisual);
         window.draw(sf_plankVisual);
-        window.draw(sf_ballVisual);
+        //window.draw(sf_ballVisual);
         PigEnemy1.render(window);
         Bird1.render(window);
         PigEnemy2.render(window);
