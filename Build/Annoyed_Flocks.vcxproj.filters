@@ -1,48 +1,84 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\src\DynamicObject.cpp">
+    <ClCompile Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\src\DynamicObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\src\main.cpp">
+    <ClCompile Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\BirdProfile.cpp">
+      <Filter>Source Files\Profiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\PigProfile.cpp">
+      <Filter>Source Files\Profiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\StructureProfile.cpp">
+      <Filter>Source Files\Profiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\Bird.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\Pig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\Structure.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\Bird.h">
+    <ClInclude Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\include\Bird.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\DynamicObject.h">
+    <ClInclude Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\include\DynamicObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\Enemy.h">
+    <ClInclude Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\include\Enemy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\GameObject.h">
+    <ClInclude Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\include\GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\Header.h">
+    <ClInclude Include="..\include\Structure.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\Pig.h">
+    <ClInclude Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\include\Pig.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\Slingshot.h">
+    <ClInclude Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\include\Slingshot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\include\StaticObject.h">
+    <ClInclude Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\include\StaticObject.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\EntityProfile.h">
+      <Filter>Header Files\Profiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\PigProfile.h">
+      <Filter>Header Files\Profiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\StructureProfile.h">
+      <Filter>Header Files\Profiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\BirdProfile.h">
+      <Filter>Header Files\Profiles</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{18D43EC5-3088-39F6-BA95-B53F56FC55E4}</UniqueIdentifier>
+      <UniqueIdentifier>{7D79B7BC-FD8C-3CCC-B76C-880F1DA30A76}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{21D8D94A-1086-3163-AEB7-8164F0DB0E8B}</UniqueIdentifier>
+      <UniqueIdentifier>{34C62A17-29FA-364F-9F7C-98401669E2B8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Profiles">
+      <UniqueIdentifier>{7e976e8e-4ba2-4cf5-824a-851e0f06b382}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Profiles">
+      <UniqueIdentifier>{51d2b80f-c538-4a2a-a973-5b15c080d85b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

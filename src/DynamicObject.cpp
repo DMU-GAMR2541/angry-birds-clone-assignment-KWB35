@@ -2,17 +2,17 @@
 
 
 
-DynamicObject::DynamicObject(std::string DynConstrutor,sf::IntRect DynIntRect,b2Vec2 DynStartPos,b2World &World, float Density, float Friction, float Restitution, float Radius)
+DynamicObject::DynamicObject(std::string DynConstrutor,b2Vec2 DynStartPos,b2World &World, float Density, float Friction, float Restitution, float Radius)
 {
 	DynTextureLoc = DynConstrutor;
 
-	if (!DynTexture.loadFromFile(DynTextureLoc , DynIntRect)) {
+	if (!DynTexture.loadFromFile(DynTextureLoc )) {
 		std::cout << "not loaded" << std::endl;
 	}
 	
 	DynSprite.setTexture(DynTexture);
 	DynSprite.setPosition(200.0f, 200.0f);
-	DynSprite.setScale(0.75,0.75);
+	DynSprite.setScale(0.1,0.1);
 	
 	DynSprite.setOrigin(DynSprite.getLocalBounds().height / 2, DynSprite.getLocalBounds().width / 2); //Sets the origin to the center of the sprite
 

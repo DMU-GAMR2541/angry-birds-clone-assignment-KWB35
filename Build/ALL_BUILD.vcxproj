@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <PreferredToolArchitecture>x64</PreferredToolArchitecture>
   </PropertyGroup>
@@ -25,7 +25,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{9F62FAA4-4D25-3939-9286-86C265858267}</ProjectGuid>
+    <ProjectGuid>{5AF956F7-2A85-3159-9AAE-219E426DCBA2}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
@@ -36,22 +36,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -108,11 +108,11 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\CMakeLists.txt">
+    <CustomBuild Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SH:/Documents/C++Year2/angry-birds-clone-assignment-KWB35 -BH:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build --check-stamp-file H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35" "-BC:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35/Build" --check-stamp-file "C:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35/Build/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -120,12 +120,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-3.30\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\3.30.1\CMakeCCompiler.cmake;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\3.30.1\CMakeCXXCompiler.cmake;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\3.30.1\CMakeRCCompiler.cmake;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\3.30.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-4.3\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\WindowsPaths.cmake;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\4.3.2\CMakeCCompiler.cmake;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\4.3.2\CMakeCXXCompiler.cmake;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\4.3.2\CMakeRCCompiler.cmake;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\4.3.2\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SH:/Documents/C++Year2/angry-birds-clone-assignment-KWB35 -BH:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build --check-stamp-file H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35" "-BC:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35/Build" --check-stamp-file "C:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35/Build/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -133,12 +133,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-3.30\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\3.30.1\CMakeCCompiler.cmake;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\3.30.1\CMakeCXXCompiler.cmake;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\3.30.1\CMakeRCCompiler.cmake;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\3.30.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-4.3\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\WindowsPaths.cmake;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\4.3.2\CMakeCCompiler.cmake;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\4.3.2\CMakeCXXCompiler.cmake;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\4.3.2\CMakeRCCompiler.cmake;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\4.3.2\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SH:/Documents/C++Year2/angry-birds-clone-assignment-KWB35 -BH:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build --check-stamp-file H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35" "-BC:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35/Build" --check-stamp-file "C:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35/Build/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -146,12 +146,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-3.30\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\3.30.1\CMakeCCompiler.cmake;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\3.30.1\CMakeCXXCompiler.cmake;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\3.30.1\CMakeRCCompiler.cmake;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\3.30.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-4.3\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\WindowsPaths.cmake;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\4.3.2\CMakeCCompiler.cmake;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\4.3.2\CMakeCXXCompiler.cmake;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\4.3.2\CMakeRCCompiler.cmake;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\4.3.2\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SH:/Documents/C++Year2/angry-birds-clone-assignment-KWB35 -BH:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build --check-stamp-file H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35" "-BC:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35/Build" --check-stamp-file "C:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35/Build/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -159,94 +159,95 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-3.30\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\3.30.1\CMakeCCompiler.cmake;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\3.30.1\CMakeCXXCompiler.cmake;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\3.30.1\CMakeRCCompiler.cmake;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\3.30.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-4.3\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\Platform\WindowsPaths.cmake;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\4.3.2\CMakeCCompiler.cmake;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\4.3.2\CMakeCXXCompiler.cmake;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\4.3.2\CMakeRCCompiler.cmake;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\4.3.2\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\ZERO_CHECK.vcxproj">
-      <Project>{0EBD5751-90A3-342E-9E20-CB9DE28B125A}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\ZERO_CHECK.vcxproj">
+      <Project>{D828B6ED-3B59-3564-BB69-722F46B8E136}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\Annoyed_Flocks.vcxproj">
-      <Project>{9811D6D8-1A5A-3A81-9F3D-AE842D5D80C7}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\Annoyed_Flocks.vcxproj">
+      <Project>{D9A7EA6E-885C-35C1-9C65-CA9A3AB64F43}</Project>
       <Name>Annoyed_Flocks</Name>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\RunUnitTests.vcxproj">
-      <Project>{09EC2FDE-F50F-301B-B8C8-2250A44F8843}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\RunUnitTests.vcxproj">
+      <Project>{FDA6CC42-F60A-3044-8FA3-41A3A7EEC6FF}</Project>
       <Name>RunUnitTests</Name>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\box2d-build\src\box2d.vcxproj">
-      <Project>{07F1B432-E62E-37AF-85D2-FAE2E1CD4980}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\box2d-build\src\box2d.vcxproj">
+      <Project>{09DD7270-31EB-3634-AB62-B0B1BB8C1907}</Project>
       <Name>box2d</Name>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\box2d-build\extern\glad\glad.vcxproj">
-      <Project>{13B14510-F0C9-34E6-99D1-3ED3CB9AF3CA}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\box2d-build\extern\glad\glad.vcxproj">
+      <Project>{70370FA0-CEEA-3184-B851-717776DE2030}</Project>
       <Name>glad</Name>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\box2d-build\extern\glfw\glfw.vcxproj">
-      <Project>{2D357072-C114-3842-872E-99F08956CBC4}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\box2d-build\extern\glfw\glfw.vcxproj">
+      <Project>{3047EF58-1C44-3DE3-953D-C479E931531D}</Project>
       <Name>glfw</Name>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\googletest-build\googlemock\gmock.vcxproj">
-      <Project>{FA113A49-F5DF-3DEB-8CCD-662EF3645335}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\googletest-build\googlemock\gmock.vcxproj">
+      <Project>{FC9BBB0C-3790-3661-A00A-BF0B8C2190CA}</Project>
       <Name>gmock</Name>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\googletest-build\googlemock\gmock_main.vcxproj">
-      <Project>{0D164875-AD28-31E2-B80E-9B39F969B038}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\googletest-build\googlemock\gmock_main.vcxproj">
+      <Project>{1E57B153-1AFA-3C42-88F7-BEAAB4596804}</Project>
       <Name>gmock_main</Name>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\googletest-build\googletest\gtest.vcxproj">
-      <Project>{BD037F97-5E90-303D-93D8-930CFFEF95F5}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\googletest-build\googletest\gtest.vcxproj">
+      <Project>{79E166D9-C557-38BF-AB1B-1B5128934098}</Project>
       <Name>gtest</Name>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\googletest-build\googletest\gtest_main.vcxproj">
-      <Project>{97E4DDA8-D131-3CE3-AE88-1CC5EC23F724}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\googletest-build\googletest\gtest_main.vcxproj">
+      <Project>{8AA9DD2C-DF2B-3290-976F-8FD1B26025E7}</Project>
       <Name>gtest_main</Name>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\box2d-build\extern\imgui\imgui.vcxproj">
-      <Project>{E9DCC134-6C3D-3B19-A31F-05AFD3E9BD95}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\box2d-build\extern\imgui\imgui.vcxproj">
+      <Project>{6035ACDA-8BD9-3AE4-8B96-E50EB6539645}</Project>
       <Name>imgui</Name>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\box2d-build\extern\sajson\sajson.vcxproj">
-      <Project>{82A8F80B-FDCE-3055-B3F9-DECB1C9F71DF}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\box2d-build\extern\sajson\sajson.vcxproj">
+      <Project>{BC4D8B99-9E87-38D0-BD85-D99A051E2C98}</Project>
       <Name>sajson</Name>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\src\SFML\Audio\sfml-audio.vcxproj">
-      <Project>{F5D1F447-5A60-3ECD-9D5C-9565B60D9440}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\src\SFML\Audio\sfml-audio.vcxproj">
+      <Project>{B4D3505F-B6E5-3B1F-8408-C1E3F873329A}</Project>
       <Name>sfml-audio</Name>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\src\SFML\Graphics\sfml-graphics.vcxproj">
-      <Project>{B79D1335-B8E7-32C3-8E6B-C946193764F2}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\src\SFML\Graphics\sfml-graphics.vcxproj">
+      <Project>{29A19732-E484-3229-A6C6-DA55D59FA8DB}</Project>
       <Name>sfml-graphics</Name>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\src\SFML\Main\sfml-main.vcxproj">
-      <Project>{C0E3E38E-C50E-3533-BB63-37AE3305BF20}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\src\SFML\Main\sfml-main.vcxproj">
+      <Project>{238BE967-583E-3F90-B275-5C9EBB6B4883}</Project>
       <Name>sfml-main</Name>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\src\SFML\Network\sfml-network.vcxproj">
-      <Project>{FD1D9CAF-A2EB-3DD8-95B3-50868685876E}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\src\SFML\Network\sfml-network.vcxproj">
+      <Project>{33952901-4854-33E5-9E20-0426C992E13B}</Project>
       <Name>sfml-network</Name>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\src\SFML\System\sfml-system.vcxproj">
-      <Project>{4C34E00B-6172-3E0A-A305-80D959D1FD29}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\src\SFML\System\sfml-system.vcxproj">
+      <Project>{042BA1CA-D2D2-33EF-AAF5-5D1847B87D3D}</Project>
       <Name>sfml-system</Name>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\src\SFML\Window\sfml-window.vcxproj">
-      <Project>{0AA746AF-37E1-3BD8-9FD4-45D34A3AFF79}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\src\SFML\Window\sfml-window.vcxproj">
+      <Project>{80BF681C-9910-30D1-95F9-CE2092D214C7}</Project>
       <Name>sfml-window</Name>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\box2d-build\testbed\testbed.vcxproj">
-      <Project>{06D5EBE3-1377-31C4-9B39-49F96DBA95CA}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\box2d-build\testbed\testbed.vcxproj">
+      <Project>{9A4EB9A4-3BCF-3A46-AD77-E216E50B0444}</Project>
       <Name>testbed</Name>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\box2d-build\unit-test\unit_test.vcxproj">
-      <Project>{8C758FCA-F1FB-38B8-AF75-2B4A9F3CB422}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\box2d-build\unit-test\unit_test.vcxproj">
+      <Project>{19A71CEA-18DA-3A88-BCC2-0A4A80879246}</Project>
       <Name>unit_test</Name>
     </ProjectReference>
   </ItemGroup>

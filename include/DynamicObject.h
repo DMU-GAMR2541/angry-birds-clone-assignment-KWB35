@@ -23,7 +23,7 @@ public:
 	virtual ~DynamicObject() = default;
 
 	//overload constructor
-	DynamicObject(std::string DynConstrutor, sf::IntRect DynIntRect, b2Vec2 DynStartPos, b2World &World, float Density, float Friction, float Restitution, float Radius);
+	DynamicObject(std::string DynConstrutor, b2Vec2 DynStartPos, b2World &World, float Density, float Friction, float Restitution, float Radius);
 
 	void render(sf::RenderWindow& GObjRenderWindow) override;
 	void update() override;
@@ -38,6 +38,7 @@ public:
 	void setVelocity(b2Vec2 ResetVel) { b2_body->SetLinearVelocity(ResetVel); };//allows for an objects velocity to be reset
 	void getPosition() { b2_body->GetPosition(); };
 
+	b2Body* getBody() { return b2_body; };
 
 protected:
 	b2Body* b2_body; //the body for the object in the box2D physics engine

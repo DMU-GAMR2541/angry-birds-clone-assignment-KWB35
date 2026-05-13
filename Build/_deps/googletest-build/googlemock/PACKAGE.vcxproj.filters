@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\1a16d5c1b8303dbbdf6fb9b0aa3d6d6d\PACKAGE_force.rule">
+    <CustomBuild Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\CMakeFiles\e77a6f767730fbf622eda2c59007cc0a\PACKAGE_force.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{4B822868-8E3E-3236-A037-415ECBF6BAD0}</UniqueIdentifier>
+      <UniqueIdentifier>{233D6FCF-8471-3863-9368-22D36443FF95}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <PreferredToolArchitecture>x64</PreferredToolArchitecture>
   </PropertyGroup>
@@ -25,7 +25,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{9F62FAA4-4D25-3939-9286-86C265858267}</ProjectGuid>
+    <ProjectGuid>{5AF956F7-2A85-3159-9AAE-219E426DCBA2}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
@@ -36,22 +36,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -108,11 +108,11 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\CMakeLists.txt">
+    <CustomBuild Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-src/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SH:/Documents/C++Year2/angry-birds-clone-assignment-KWB35 -BH:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build --check-stamp-file H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35" "-BC:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35/Build" --check-stamp-file "C:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-build/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -120,12 +120,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;C:\Program Files\CMake\share\cmake-3.30\Templates\CPackConfig.cmake.in;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\cmake\Config.cmake;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\cmake\SFMLConfig.cmake.in;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\cmake\SFMLConfigDependencies.cmake.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-4.3\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\WriteBasicConfigVersionFile.cmake;C:\Program Files\CMake\share\cmake-4.3\Templates\CPackConfig.cmake.in;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\cmake\Config.cmake;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\cmake\SFMLConfig.cmake.in;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\cmake\SFMLConfigDependencies.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-src/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SH:/Documents/C++Year2/angry-birds-clone-assignment-KWB35 -BH:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build --check-stamp-file H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35" "-BC:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35/Build" --check-stamp-file "C:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-build/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -133,12 +133,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;C:\Program Files\CMake\share\cmake-3.30\Templates\CPackConfig.cmake.in;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\cmake\Config.cmake;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\cmake\SFMLConfig.cmake.in;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\cmake\SFMLConfigDependencies.cmake.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-4.3\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\WriteBasicConfigVersionFile.cmake;C:\Program Files\CMake\share\cmake-4.3\Templates\CPackConfig.cmake.in;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\cmake\Config.cmake;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\cmake\SFMLConfig.cmake.in;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\cmake\SFMLConfigDependencies.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-src/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SH:/Documents/C++Year2/angry-birds-clone-assignment-KWB35 -BH:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build --check-stamp-file H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35" "-BC:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35/Build" --check-stamp-file "C:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-build/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -146,12 +146,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;C:\Program Files\CMake\share\cmake-3.30\Templates\CPackConfig.cmake.in;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\cmake\Config.cmake;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\cmake\SFMLConfig.cmake.in;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\cmake\SFMLConfigDependencies.cmake.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-4.3\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\WriteBasicConfigVersionFile.cmake;C:\Program Files\CMake\share\cmake-4.3\Templates\CPackConfig.cmake.in;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\cmake\Config.cmake;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\cmake\SFMLConfig.cmake.in;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\cmake\SFMLConfigDependencies.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-src/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SH:/Documents/C++Year2/angry-birds-clone-assignment-KWB35 -BH:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build --check-stamp-file H:/Documents/C++Year2/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35" "-BC:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35/Build" --check-stamp-file "C:/Users/kianb/Documents/University Work/angry-birds-clone-assignment-KWB35/Build/_deps/sfml-build/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -159,42 +159,43 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;C:\Program Files\CMake\share\cmake-3.30\Templates\CPackConfig.cmake.in;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\cmake\Config.cmake;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\cmake\SFMLConfig.cmake.in;H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\cmake\SFMLConfigDependencies.cmake.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-4.3\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-4.3\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-4.3\Modules\WriteBasicConfigVersionFile.cmake;C:\Program Files\CMake\share\cmake-4.3\Templates\CPackConfig.cmake.in;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\cmake\Config.cmake;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\cmake\SFMLConfig.cmake.in;C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-src\cmake\SFMLConfigDependencies.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\ZERO_CHECK.vcxproj">
-      <Project>{0EBD5751-90A3-342E-9E20-CB9DE28B125A}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\ZERO_CHECK.vcxproj">
+      <Project>{D828B6ED-3B59-3564-BB69-722F46B8E136}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\src\SFML\Audio\sfml-audio.vcxproj">
-      <Project>{F5D1F447-5A60-3ECD-9D5C-9565B60D9440}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\src\SFML\Audio\sfml-audio.vcxproj">
+      <Project>{B4D3505F-B6E5-3B1F-8408-C1E3F873329A}</Project>
       <Name>sfml-audio</Name>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\src\SFML\Graphics\sfml-graphics.vcxproj">
-      <Project>{B79D1335-B8E7-32C3-8E6B-C946193764F2}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\src\SFML\Graphics\sfml-graphics.vcxproj">
+      <Project>{29A19732-E484-3229-A6C6-DA55D59FA8DB}</Project>
       <Name>sfml-graphics</Name>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\src\SFML\Main\sfml-main.vcxproj">
-      <Project>{C0E3E38E-C50E-3533-BB63-37AE3305BF20}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\src\SFML\Main\sfml-main.vcxproj">
+      <Project>{238BE967-583E-3F90-B275-5C9EBB6B4883}</Project>
       <Name>sfml-main</Name>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\src\SFML\Network\sfml-network.vcxproj">
-      <Project>{FD1D9CAF-A2EB-3DD8-95B3-50868685876E}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\src\SFML\Network\sfml-network.vcxproj">
+      <Project>{33952901-4854-33E5-9E20-0426C992E13B}</Project>
       <Name>sfml-network</Name>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\src\SFML\System\sfml-system.vcxproj">
-      <Project>{4C34E00B-6172-3E0A-A305-80D959D1FD29}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\src\SFML\System\sfml-system.vcxproj">
+      <Project>{042BA1CA-D2D2-33EF-AAF5-5D1847B87D3D}</Project>
       <Name>sfml-system</Name>
     </ProjectReference>
-    <ProjectReference Include="H:\Documents\C++Year2\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\src\SFML\Window\sfml-window.vcxproj">
-      <Project>{0AA746AF-37E1-3BD8-9FD4-45D34A3AFF79}</Project>
+    <ProjectReference Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\Build\_deps\sfml-build\src\SFML\Window\sfml-window.vcxproj">
+      <Project>{80BF681C-9910-30D1-95F9-CE2092D214C7}</Project>
       <Name>sfml-window</Name>
     </ProjectReference>
   </ItemGroup>

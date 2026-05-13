@@ -85,24 +85,8 @@ int main() {
     sf_plankVisual.setOrigin(10.0f, 60.0f);
     sf_plankVisual.setFillColor(sf::Color(139, 69, 19)); // Brown
 
-    /*//Create a ball that is fired when space is pressed.We need to first have a dynamic ball to do it.
-    b2BodyDef b2_ballDef;
-    b2_ballDef.type = b2_dynamicBody;
-    b2_ballDef.position.Set(100.0f / SCALE, 500.0f / SCALE);
-    b2Body* b2_ballBody = world.CreateBody(&b2_ballDef);
+   
 
-    b2CircleShape b2_circleShape;
-    b2_circleShape.m_radius = 15.0f / SCALE;
-
-    b2FixtureDef b2_ballFixture;
-    b2_ballFixture.shape = &b2_circleShape;
-    b2_ballFixture.density = 1.0f;
-    b2_ballFixture.restitution = 0.5f; // Bounciness 
-    b2_ballBody->CreateFixture(&b2_ballFixture);
-
-    sf::CircleShape sf_ballVisual(15.0f);
-    sf_ballVisual.setOrigin(15.0f, 15.0f);
-    sf_ballVisual.setFillColor(sf::Color::Yellow);*/
 
     //Adding physics to the sprites
     b2Vec2 b2_pos; //The position of the object in the game world
@@ -114,28 +98,20 @@ int main() {
     b2CircleShape b2_dynamicCircle; //The shape of the object in the Box2D physics engine defined as a circle
 
 
-    //setup fixture
-    //b2_fixtureDef.shape = &b2_dynamicCircle;
-    //b2_fixtureDef.density = 1.0f;
-    //b2_fixtureDef.friction = 3.0f;
-    //b2_fixtureDef.restitution = 0.5f;
-
     //Makes the pigs 
     std::list<std::unique_ptr<Pig>> PigVariant;
-    for (int i = 0; i < 3; i++)
-    {
-        PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/sprite_1.png", sf::IntRect(0, 0, 60, 52), b2Vec2(((250.0f * i) + 250) / SCALE, 100.0f / SCALE), world, 1.0f, 4.0f, 0.5f, 0.5f));
-        PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/sprite_2.png", sf::IntRect(5, 0, 85, 90), b2Vec2(((150.0f * i) + 400) / SCALE, 50.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 0.8f));
-    }
+
+    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/angry-birds-png-46187.png", b2Vec2(500.0f / SCALE, 450.0f / SCALE), world, 1.0f, 4.0f, 0.5f, 0.5f));
+    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/angry-birds-png-46187.png", b2Vec2(600.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 0.8f));
+
+
+    std::list<std::unique_ptr<Bird>> BirdVariant;
 
     
-   // Pig PigEnemy1("../assets/Ang_Birds/sprite_1.png", sf::IntRect(0, 0, 60, 52), b2Vec2(250.0f / SCALE, 200.0f / SCALE),world, 1.0f, 4.0f, 0.5f, 0.5f); //sets the pigs spawning position, properly displays the sprite and sets keys stats
-
-    //Pig PigEnemy2("../assets/Ang_Birds/sprite_2.png", sf::IntRect(5, 0, 85, 90), b2Vec2(600.0f / SCALE, 200.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 0.8f);
-
+   
 
     //Makes a Bird
-    Bird Bird1("../assets/Ang_Birds/Adapted_Birds.png", sf::IntRect(940, 196, 80, 80), b2Vec2(100.0f / SCALE, 500.0f / SCALE),world, 1.0f, 4.0f, 0.5f, 1.0f);//defines the birds variables 
+    Bird Bird1("../assets/Ang_Birds/birds-png-3514.png", b2Vec2(100.0f / SCALE, 500.0f / SCALE),world, 1.0f, 4.0f, 0.5f, 1.0f);//defines the birds variables 
 
 
     // --- 7. MAIN LOOP ---
@@ -155,24 +131,11 @@ int main() {
             // INPUT HANDLING: Press Left Click to launch
             if (event.type == sf::Event::MouseButtonPressed) {
                 if (event.key.code == sf::Mouse::Left) {
-                    // Reset position of the ball so that it can be fired again from its original poisition.
-                   // b2_ballBody->SetTransform(b2Vec2(100.0f / SCALE, 500.0f / SCALE), 0);
-                   // b2_ballBody->SetLinearVelocity(b2Vec2(0, 0));
-                    //b2_ballBody->SetAngularVelocity(0);
 
-                    // Apply impulse (X-axis, Y-axis) Negative Y is UP in Box2D because gravity is positive.
-                   // b2_ballBody->ApplyLinearImpulse(b2Vec2(5.0f, -5.0f), b2_ballBody->GetWorldCenter(), true);
-
-                    //Bird1.GetBody().SetTransform(b2Vec2(100.0f / SCALE, 500.0f / SCALE), 0);
-                    //Bird1.GetBody().SetLinearVelocity(b2Vec2(0, 0));
-                    //Bird1.GetBody().SetAngularVelocity(0);
-
-                    //Bird1.GetBody().ApplyLinearImpulse(b2Vec2(10.0f, -5.0f), Bird1.GetBody().GetWorldCenter(), true);
 
                     Bird1.setVelocity(ResetVel);
                     Bird1.setPosition(SlingshotPos,0);
                     
-
                     
                     Bird1.impulse(b2Vec2(MousePosX / 5, - MousePosY / 8), true); //Gets mouse position and sets the impulse to it divided by the specified scale
 
@@ -188,8 +151,7 @@ int main() {
 
         //All of the visuals needs to be synced with the physics.
 
-       // sf_ballVisual.setPosition(b2_ballBody->GetPosition().x * SCALE, b2_ballBody->GetPosition().y * SCALE);
-       // sf_ballVisual.setRotation(b2_ballBody->GetAngle() * (180.0f / PI));
+
 
         //Static objects usually don't move, but we set the position once.
         sf_groundVisual.setPosition(b2_groundBody->GetPosition().x * SCALE, b2_groundBody->GetPosition().y * SCALE);

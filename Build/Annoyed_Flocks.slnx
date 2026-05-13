@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Solution>
+	<Configurations>
+		<BuildType Name="Debug"/>
+		<BuildType Name="Release"/>
+		<BuildType Name="MinSizeRel"/>
+		<BuildType Name="RelWithDebInfo"/>
+		<Platform Name="x64"/>
+	</Configurations>
+	<Project Path="Annoyed_Flocks.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="d9a7ea6e-885c-35c1-9c65-ca9a3ab64f43">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="_deps/box2d-build/src/box2d.vcxproj"/>
+		<BuildDependency Project="_deps/sfml-build/src/SFML/Audio/sfml-audio.vcxproj"/>
+		<BuildDependency Project="_deps/sfml-build/src/SFML/Graphics/sfml-graphics.vcxproj"/>
+		<BuildDependency Project="_deps/sfml-build/src/SFML/Network/sfml-network.vcxproj"/>
+		<BuildDependency Project="_deps/sfml-build/src/SFML/System/sfml-system.vcxproj"/>
+		<BuildDependency Project="_deps/sfml-build/src/SFML/Window/sfml-window.vcxproj"/>
+	</Project>
+	<Project Path="RunUnitTests.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="fda6cc42-f60a-3044-8fa3-41a3a7eec6ff">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="_deps/box2d-build/src/box2d.vcxproj"/>
+		<BuildDependency Project="_deps/googletest-build/googletest/gtest.vcxproj"/>
+		<BuildDependency Project="_deps/googletest-build/googletest/gtest_main.vcxproj"/>
+		<BuildDependency Project="_deps/sfml-build/src/SFML/Audio/sfml-audio.vcxproj"/>
+		<BuildDependency Project="_deps/sfml-build/src/SFML/Graphics/sfml-graphics.vcxproj"/>
+		<BuildDependency Project="_deps/sfml-build/src/SFML/Network/sfml-network.vcxproj"/>
+		<BuildDependency Project="_deps/sfml-build/src/SFML/System/sfml-system.vcxproj"/>
+		<BuildDependency Project="_deps/sfml-build/src/SFML/Window/sfml-window.vcxproj"/>
+	</Project>
+	<Project Path="_deps/box2d-build/src/box2d.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="09dd7270-31eb-3634-ab62-b0b1bb8c1907">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="_deps/box2d-build/extern/glad/glad.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="70370fa0-ceea-3184-b851-717776de2030">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="_deps/box2d-build/extern/glfw/glfw.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="3047ef58-1c44-3de3-953d-c479e931531d">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="_deps/googletest-build/googlemock/gmock.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="fc9bbb0c-3790-3661-a00a-bf0b8c2190ca">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="_deps/googletest-build/googlemock/gmock_main.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="1e57b153-1afa-3c42-88f7-beaab4596804">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="_deps/googletest-build/googletest/gtest.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="79e166d9-c557-38bf-ab1b-1b5128934098">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="_deps/googletest-build/googletest/gtest_main.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="8aa9dd2c-df2b-3290-976f-8fd1b26025e7">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="_deps/googletest-build/googletest/gtest.vcxproj"/>
+	</Project>
+	<Project Path="_deps/box2d-build/extern/imgui/imgui.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="6035acda-8bd9-3ae4-8b96-e50eb6539645">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="_deps/box2d-build/extern/sajson/sajson.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="bc4d8b99-9e87-38d0-bd85-d99a051e2c98">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="_deps/box2d-build/testbed/testbed.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="9a4eb9a4-3bcf-3a46-ad77-e216e50b0444">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="_deps/box2d-build/src/box2d.vcxproj"/>
+		<BuildDependency Project="_deps/box2d-build/extern/glad/glad.vcxproj"/>
+		<BuildDependency Project="_deps/box2d-build/extern/glfw/glfw.vcxproj"/>
+		<BuildDependency Project="_deps/box2d-build/extern/imgui/imgui.vcxproj"/>
+		<BuildDependency Project="_deps/box2d-build/extern/sajson/sajson.vcxproj"/>
+	</Project>
+	<Project Path="_deps/box2d-build/unit-test/unit_test.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="19a71cea-18da-3a88-bcc2-0a4a80879246">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="_deps/box2d-build/src/box2d.vcxproj"/>
+	</Project>
+	<Folder Name="/CMake/">
+		<Project Path="ALL_BUILD.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="5af956f7-2a85-3159-9aae-219e426dcba2" DefaultStartup="true">
+			<BuildDependency Project="Annoyed_Flocks.vcxproj"/>
+			<BuildDependency Project="RunUnitTests.vcxproj"/>
+			<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+			<BuildDependency Project="_deps/box2d-build/src/box2d.vcxproj"/>
+			<BuildDependency Project="_deps/box2d-build/extern/glad/glad.vcxproj"/>
+			<BuildDependency Project="_deps/box2d-build/extern/glfw/glfw.vcxproj"/>
+			<BuildDependency Project="_deps/googletest-build/googlemock/gmock.vcxproj"/>
+			<BuildDependency Project="_deps/googletest-build/googlemock/gmock_main.vcxproj"/>
+			<BuildDependency Project="_deps/googletest-build/googletest/gtest.vcxproj"/>
+			<BuildDependency Project="_deps/googletest-build/googletest/gtest_main.vcxproj"/>
+			<BuildDependency Project="_deps/box2d-build/extern/imgui/imgui.vcxproj"/>
+			<BuildDependency Project="_deps/box2d-build/extern/sajson/sajson.vcxproj"/>
+			<BuildDependency Project="_deps/sfml-build/src/SFML/Audio/sfml-audio.vcxproj"/>
+			<BuildDependency Project="_deps/sfml-build/src/SFML/Graphics/sfml-graphics.vcxproj"/>
+			<BuildDependency Project="_deps/sfml-build/src/SFML/Main/sfml-main.vcxproj"/>
+			<BuildDependency Project="_deps/sfml-build/src/SFML/Network/sfml-network.vcxproj"/>
+			<BuildDependency Project="_deps/sfml-build/src/SFML/System/sfml-system.vcxproj"/>
+			<BuildDependency Project="_deps/sfml-build/src/SFML/Window/sfml-window.vcxproj"/>
+			<BuildDependency Project="_deps/box2d-build/testbed/testbed.vcxproj"/>
+			<BuildDependency Project="_deps/box2d-build/unit-test/unit_test.vcxproj"/>
+		</Project>
+		<Project Path="INSTALL.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="440e68d9-77c0-32f3-8430-d1c0749c2746">
+			<BuildDependency Project="ALL_BUILD.vcxproj"/>
+			<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+			<Build Solution="Debug|*" Project="false"/>
+			<Build Solution="Release|*" Project="false"/>
+			<Build Solution="MinSizeRel|*" Project="false"/>
+			<Build Solution="RelWithDebInfo|*" Project="false"/>
+		</Project>
+		<Project Path="PACKAGE.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="49ccec64-b9aa-3917-b0d6-a786f202f0b1">
+			<BuildDependency Project="ALL_BUILD.vcxproj"/>
+			<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+			<Build Solution="Debug|*" Project="false"/>
+			<Build Solution="Release|*" Project="false"/>
+			<Build Solution="MinSizeRel|*" Project="false"/>
+			<Build Solution="RelWithDebInfo|*" Project="false"/>
+		</Project>
+		<Project Path="ZERO_CHECK.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="d828b6ed-3b59-3564-bb69-722f46b8e136"/>
+	</Folder>
+	<Folder Name="/SFML/">
+		<Project Path="_deps/sfml-build/src/SFML/Audio/sfml-audio.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="b4d3505f-b6e5-3b1f-8408-c1e3f873329a">
+			<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+			<BuildDependency Project="_deps/sfml-build/src/SFML/System/sfml-system.vcxproj"/>
+		</Project>
+		<Project Path="_deps/sfml-build/src/SFML/Graphics/sfml-graphics.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="29a19732-e484-3229-a6c6-da55d59fa8db">
+			<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+			<BuildDependency Project="_deps/sfml-build/src/SFML/System/sfml-system.vcxproj"/>
+			<BuildDependency Project="_deps/sfml-build/src/SFML/Window/sfml-window.vcxproj"/>
+		</Project>
+		<Project Path="_deps/sfml-build/src/SFML/Main/sfml-main.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="238be967-583e-3f90-b275-5c9ebb6b4883">
+			<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		</Project>
+		<Project Path="_deps/sfml-build/src/SFML/Network/sfml-network.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="33952901-4854-33e5-9e20-0426c992e13b">
+			<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+			<BuildDependency Project="_deps/sfml-build/src/SFML/System/sfml-system.vcxproj"/>
+		</Project>
+		<Project Path="_deps/sfml-build/src/SFML/System/sfml-system.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="042ba1ca-d2d2-33ef-aaf5-5d1847b87d3d">
+			<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		</Project>
+		<Project Path="_deps/sfml-build/src/SFML/Window/sfml-window.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="80bf681c-9910-30d1-95f9-ce2092d214c7">
+			<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+			<BuildDependency Project="_deps/sfml-build/src/SFML/System/sfml-system.vcxproj"/>
+		</Project>
+	</Folder>
+</Solution>
