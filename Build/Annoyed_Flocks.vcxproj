@@ -412,23 +412,12 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\include\Bird.cpp" />
-    <ClCompile Include="..\include\BirdProfile.cpp" />
-    <ClCompile Include="..\include\Pig.cpp" />
-    <ClCompile Include="..\include\PigProfile.cpp" />
-    <ClCompile Include="..\include\Structure.cpp" />
-    <ClCompile Include="..\include\StructureProfile.cpp" />
     <ClCompile Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\src\DynamicObject.cpp" />
     <ClCompile Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\src\main.cpp" />
-    <ClInclude Include="..\include\BirdProfile.h" />
-    <ClInclude Include="..\include\PigProfile.h" />
-    <ClInclude Include="..\include\EntityProfile.h" />
-    <ClInclude Include="..\include\StructureProfile.h" />
     <ClInclude Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\include\Bird.h" />
     <ClInclude Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\include\DynamicObject.h" />
     <ClInclude Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\include\Enemy.h" />
     <ClInclude Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\include\GameObject.h" />
-    <ClInclude Include="..\include\Structure.h" />
     <ClInclude Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\include\Pig.h" />
     <ClInclude Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\include\Slingshot.h" />
     <ClInclude Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\include\StaticObject.h" />

@@ -7,24 +7,6 @@
     <ClCompile Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\include\BirdProfile.cpp">
-      <Filter>Source Files\Profiles</Filter>
-    </ClCompile>
-    <ClCompile Include="..\include\PigProfile.cpp">
-      <Filter>Source Files\Profiles</Filter>
-    </ClCompile>
-    <ClCompile Include="..\include\StructureProfile.cpp">
-      <Filter>Source Files\Profiles</Filter>
-    </ClCompile>
-    <ClCompile Include="..\include\Bird.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\include\Pig.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\include\Structure.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\include\Bird.h">
@@ -39,9 +21,6 @@
     <ClInclude Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\include\GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\Structure.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\include\Pig.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -50,18 +29,6 @@
     </ClInclude>
     <ClInclude Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\include\StaticObject.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\EntityProfile.h">
-      <Filter>Header Files\Profiles</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\PigProfile.h">
-      <Filter>Header Files\Profiles</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\StructureProfile.h">
-      <Filter>Header Files\Profiles</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\BirdProfile.h">
-      <Filter>Header Files\Profiles</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -73,12 +40,6 @@
     </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{34C62A17-29FA-364F-9F7C-98401669E2B8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Profiles">
-      <UniqueIdentifier>{7e976e8e-4ba2-4cf5-824a-851e0f06b382}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Profiles">
-      <UniqueIdentifier>{51d2b80f-c538-4a2a-a973-5b15c080d85b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

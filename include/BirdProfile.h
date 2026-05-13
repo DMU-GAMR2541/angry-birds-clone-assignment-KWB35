@@ -1,6 +1,4 @@
 #pragma once
-
+#include <string>
 #include "EntityProfile.h"
 #include "Bird.h"
-
-const EntityData& getBirdProfile(Birdtype Type);

@@ -8,7 +8,7 @@ struct EntityData {
 	float height;
 	float weight;
 	float friction;
-	float restitution;
+	float restitutiom;
 
 	bool isCircle;
 };
