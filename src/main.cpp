@@ -4,6 +4,9 @@
 #include "Pig.h"
 #include "Bird.h"
 #include <list>
+#include "DynamicObject.h"
+
+
 
 
 int main() {
@@ -100,9 +103,13 @@ int main() {
 
     //Makes the pigs 
     std::list<std::unique_ptr<Pig>> PigVariant;
+    PigVariant.push_back(std::make_unique<Pig>(PigSize::Med, 200.0f, 200.0f, 0, world));
+    PigVariant.push_back(std::make_unique<Pig>(PigSize::Large, 200.0f, 200.0f, 0, world));
+    PigVariant.push_back(std::make_unique<Pig>(PigSize::Small, 200.0f, 200.0f, 0, world));
+    
 
-    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/angry-birds-png-46187.png", b2Vec2(500.0f / SCALE, 450.0f / SCALE), world, 1.0f, 4.0f, 0.5f, 0.5f));
-    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/angry-birds-png-46187.png", b2Vec2(600.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 0.8f));
+    //PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/angry-birds-png-46187.png", b2Vec2(500.0f / SCALE, 450.0f / SCALE), world, 1.0f, 4.0f, 0.5f, 0.5f));
+    //PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/angry-birds-png-46187.png", b2Vec2(600.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 0.8f));
 
 
     std::list<std::unique_ptr<Bird>> BirdVariant;
@@ -111,7 +118,7 @@ int main() {
    
 
     //Makes a Bird
-    Bird Bird1("../assets/Ang_Birds/birds-png-3514.png", b2Vec2(100.0f / SCALE, 500.0f / SCALE),world, 1.0f, 4.0f, 0.5f, 1.0f);//defines the birds variables 
+    //Bird Bird1("../assets/Ang_Birds/birds-png-3514.png", b2Vec2(100.0f / SCALE, 500.0f / SCALE),world, 1.0f, 4.0f, 0.5f, 1.0f);//defines the birds variables 
 
 
     // --- 7. MAIN LOOP ---
@@ -129,15 +136,9 @@ int main() {
                 window.close();
 
             // INPUT HANDLING: Press Left Click to launch
-            if (event.type == sf::Event::MouseButtonPressed) {
+            if (event.type == sf::Event::MouseButtonReleased) {
                 if (event.key.code == sf::Mouse::Left) {
 
-
-                    Bird1.setVelocity(ResetVel);
-                    Bird1.setPosition(SlingshotPos,0);
-                    
-                    
-                    Bird1.impulse(b2Vec2(MousePosX / 5, - MousePosY / 8), true); //Gets mouse position and sets the impulse to it divided by the specified scale
 
                     std::cout << "Firing!!!!" << std::endl;
                 }
@@ -162,7 +163,7 @@ int main() {
         sf_plankVisual.setRotation(b2_plankBody->GetAngle() * (180.0f / PI));
 
 
-        Bird1.UpdateSprite();
+        
 
 
         //Render all of the content at each frame. Remember you need to clear the screen each iteration or artefacts remain.
@@ -171,7 +172,7 @@ int main() {
         window.draw(sf_groundVisual);
         window.draw(sf_wallVisual);
         window.draw(sf_plankVisual);
-        Bird1.render(window);
+        //Bird1.render(window);
 
         //Renders and updates the pig variants 
         for (std::unique_ptr<Pig>& p : PigVariant) 

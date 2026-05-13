@@ -1,17 +1,35 @@
 #pragma once
 #include "DynamicObject.h"
 #include <SFML/Graphics.hpp>
+#include "PigProfile.h"
+#include<string>
 
-enum class PigSize;
+
+enum class PigSize {Small, Med, Large};
 
 class Pig : public virtual DynamicObject {
 private:
+	int getInitialHealth(PigSize size) const;
+	int i_Health;
+	PigSize pigSize;
 
+ 	bool destroyed = false;
 protected:
-	float const Health = 2;
+
 	
 public:
 	Pig() = default;
+	virtual ~Pig() = default;
 
-	Pig(std::string PigLoc, b2Vec2 PigStartPos, b2World &World, float PigDensity, float PigFriction, float PigRestitution, float PigRadii) : DynamicObject(PigLoc, PigStartPos, World, PigDensity, PigFriction, PigRestitution, PigRadii) {};//passed so can use things from dynamic object //Holds variable that control the spawned pigs key info 
+	void update() override;
+	void render(sf::RenderWindow& window);
+
+	void takeDamage(int damage);
+	bool isDead() const;
+	int getHealth() const;
+	PigSize getSize();
+
+	Pig(b2World& world, PigSize pigData, float pigX, float pigY, float pigRotation = 0.0f);//passed so can use things from dynamic object //Holds variable that control the spawned pigs key info 
+	
+
 };
