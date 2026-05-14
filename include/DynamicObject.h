@@ -23,14 +23,18 @@ public:
 	//Default destructor
 	virtual ~DynamicObject() = default;
 
+	
+
 	//overload constructor
-	DynamicObject(std::string DynConstrutor, b2Vec2 DynStartPos, b2World &World, float Density, float Friction, float Restitution, float Radius, float ScaleX, float ScaleY, int i_Health, float rotation = 0.0f, std::string shape);
+	DynamicObject(std::string DynConstrutor, b2Vec2 DynStartPos, b2World &World, float Density, float Friction, float Restitution, float Radius, float ScaleX, float ScaleY, int i_Health, float rotation,std::string shape);
 
 	void setBody(b2Body* body);
 
 	void render(sf::RenderWindow& GObjRenderWindow) override;
 	void update() override;
 	void UpdateSprite();
+
+	float maxHealth = 100.0f;
 
 	void impulse(b2Vec2 b2_impulse, bool awake) 
 	{

@@ -2,7 +2,7 @@
 #include "Pig.h"
 
 
-Pig::Pig(std::string PigLoc, b2Vec2 PigStartPos, b2World& World, float PigDensity, float PigFriction, float PigRestitution, float PigRadii, float PScaleX, float PScaleY, int pigHealth, float pigRotation, std::string pigShape, float maxHealth) : DynamicObject(PigLoc, PigStartPos, World, PigDensity, PigFriction, PigRestitution, PigRadii, PScaleX, PScaleY, pigHealth, pigRotation, pigShape) {
+Pig::Pig(std::string PigLoc, b2Vec2 PigStartPos, b2World& World, float PigDensity, float PigFriction, float PigRestitution, float PigRadii, float PScaleX, float PScaleY, int pigHealth, float pigRotation, std::string pigShape) : DynamicObject(PigLoc, PigStartPos, World, PigDensity, PigFriction, PigRestitution, PigRadii, PScaleX, PScaleY, pigHealth, pigRotation, pigShape) {
 
 
 	health = maxHealth; //sets the health of the pig to the max value when created

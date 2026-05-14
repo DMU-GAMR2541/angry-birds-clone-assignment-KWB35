@@ -2,7 +2,7 @@
 
 bool n = true;
 
-DynamicObject::DynamicObject(std::string DynConstrutor,b2Vec2 DynStartPos,b2World &World, float Density, float Friction, float Restitution, float Radius, float ScaleX, float ScaleY, int i_Health, float rotation,std::string shape)
+DynamicObject::DynamicObject(std::string DynConstrutor,b2Vec2 DynStartPos,b2World &World, float Density, float Friction, float Restitution, float Radius, float ScaleX, float ScaleY, int i_Health, float rotation = 0.0f,std::string shape)
 {
 	DynTextureLoc = DynConstrutor;
 
@@ -30,12 +30,13 @@ DynamicObject::DynamicObject(std::string DynConstrutor,b2Vec2 DynStartPos,b2Worl
 	
 	if (!b2_body)return;
 
+	b2_body->GetUserData().pointer = reinterpret_cast<uintptr_t>(this);
 	//setup fixtures
 	if (shape == "circle")
 	{
 		b2_fixtureDef.shape = &b2_dynamicCircle;
 	}
-	else 
+	else
 	{
 		b2PolygonShape boxShape;
 		boxShape.SetAsBox(84.0f / 2.0f / Scale, 10.0f / 2.0f / Scale);
