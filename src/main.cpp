@@ -4,6 +4,7 @@
 #include "Pig.h"
 #include "Bird.h"
 #include <list>
+#include "Blocks.h"
 
 
 int main() {
@@ -86,6 +87,7 @@ int main() {
     b2Vec2 b2_pos; //The position of the object in the game world
     b2BodyDef b2_bodyDef; //The body definition for the object in the Box2D physics engine
     b2FixtureDef b2_fixtureDef; //The fixture definition for the object in the Box2D physics engine
+    
 
     b2Body* b2_body; //the body for the object in the box2D physics engine
 
@@ -95,15 +97,20 @@ int main() {
     //Makes the pigs 
     std::list<std::unique_ptr<Pig>> PigVariant;
 
-    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/angry-birds-png-46187.png", b2Vec2(500.0f / SCALE, 450.0f / SCALE), world, 1.0f, 4.0f, 0.5f, 1.0f,0.15f,0.15f));
-    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/PigKing.png", b2Vec2(600.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 1.6f,0.6f,0.6f));
-    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/PigSprite_5.png", b2Vec2(800.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 1.3f, 0.7f, 0.8f));
+    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/angry-birds-png-46187.png", b2Vec2(500.0f / SCALE, 450.0f / SCALE), world, 1.0f, 4.0f, 0.5f, 1.0f,0.15f,0.15f,1,0.0f, "circle"));
+    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/PigKing.png", b2Vec2(600.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 1.6f,0.6f,0.6f,3,0.0f, "circle"));
+    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/PigSprite_5.png", b2Vec2(800.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 1.3f, 0.7f, 0.8f,2,0.0f, "circle"));
 
     std::list<std::unique_ptr<Bird>> BirdVariant;
 
-    BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/birds-png-3514.png", b2Vec2(100.0f / SCALE, 500.0f / SCALE), world, 0.7f, 4.0f, 0.5f, 1.0f,0.08f,0.08f));
-    BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/angry-birds-png-46169.png", b2Vec2(20.0f / SCALE, 500.0f / SCALE), world, 2.0f, 4.0f, 0.5f, 0.5f, 0.04f, 0.03f));
-    BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/angry-birds-png-46179.png", b2Vec2(20.0f / SCALE, 500.0f / SCALE), world, 0.7f, 4.0f, 0.5f, 1.0f, 0.06f, 0.06f));
+    BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/birds-png-3514.png", b2Vec2(100.0f / SCALE, 500.0f / SCALE), world, 0.7f, 4.0f, 0.5f, 1.0f,0.08f,0.08f,100,0,"circle"));
+    BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/angry-birds-png-46169.png", b2Vec2(20.0f / SCALE, 500.0f / SCALE), world, 2.0f, 4.0f, 0.5f, 0.5f, 0.04f, 0.03f,100,0.0f, "circle"));
+    BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/angry-birds-png-46179.png", b2Vec2(20.0f / SCALE, 500.0f / SCALE), world, 0.7f, 4.0f, 0.5f, 1.0f, 0.06f, 0.06f,100,0.0f, "circle"));
+
+    std::list<std::unique_ptr<Blocks>> BlockVariant;
+
+    BlockVariant.push_back(std::make_unique<Blocks>("../assets/Ang_Birds/NicePng_angry-gamer-png_2299190.PNG", b2Vec2(700.0f / SCALE, 300.0f / SCALE), world, 1.f, 4.0f, 0.5f, 0.3f, 1.f, 1.f, 2, 180.0f, "rectangle"));
+
 
 
     sf::Vector2f slingshotOrigin(150.0f, 500.0f);
@@ -123,6 +130,8 @@ int main() {
     float waitingTime = 0.0f;
     float waitingTimeThreshhold = 5.0f;
     sf::Clock birdTimer;
+   
+ 
     
 
     // --- 7. MAIN LOOP ---
@@ -133,8 +142,10 @@ int main() {
             if (event.type == sf::Event::Closed)
                 window.close();
 
+
+
             // INPUT HANDLING: Press Left Click to launch
-            if (event.type == sf::Event::MouseButtonPressed) 
+            if (event.type == sf::Event::MouseButtonPressed)  
             {
                 if (event.key.code == sf::Mouse::Left) 
                 {
@@ -151,7 +162,7 @@ int main() {
             {
                 if(event.key.code == sf::Mouse::Left)
                 {
-                    if (isDragging = true)
+                    if (isDragging)
                     {
                         Bird* tempBird = BirdVariant.front().get();
                         b2Body* tempBody = tempBird->getBody();
@@ -175,10 +186,15 @@ int main() {
             }
 
             
+
+            
         }
 
         // Update Physics
         world.Step(1.0f / 60.0f, 8, 3);
+
+
+        
 
         //Dragging System Set-Up
         if (isDragging) 
@@ -223,6 +239,8 @@ int main() {
 
                 }
             }
+
+            
         }
 
 
@@ -232,6 +250,7 @@ int main() {
         //Static objects usually don't move, but we set the position once.
         sf_groundVisual.setPosition(b2_groundBody->GetPosition().x * SCALE, b2_groundBody->GetPosition().y * SCALE);
         sf_wallVisual.setPosition(b2_wallBody->GetPosition().x * SCALE, b2_wallBody->GetPosition().y * SCALE);
+
 
         // Dynamic wall.
         sf_plankVisual.setPosition(b2_plankBody->GetPosition().x * SCALE, b2_plankBody->GetPosition().y * SCALE);
@@ -248,7 +267,7 @@ int main() {
         window.draw(sf_groundVisual);
         window.draw(sf_wallVisual);
         window.draw(sf_plankVisual);
-        //Bird1.render(window);
+        
 
         //Renders and updates the pig variants 
         for (std::unique_ptr<Pig>& p : PigVariant) 
@@ -260,6 +279,11 @@ int main() {
         {
             b->UpdateSprite();
             b->render(window);
+        }
+        for (std::unique_ptr<Blocks>& s : BlockVariant)
+        {
+            s->UpdateSprite();
+            s->render(window);
         }
 
         window.display();

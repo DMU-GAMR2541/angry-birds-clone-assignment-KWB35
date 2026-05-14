@@ -414,6 +414,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemGroup>
     <ClCompile Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\src\DynamicObject.cpp" />
     <ClCompile Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\src\main.cpp" />
+    <ClInclude Include="..\include\Blocks.h" />
     <ClInclude Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\include\Bird.h" />
     <ClInclude Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\include\DynamicObject.h" />
     <ClInclude Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\include\Enemy.h" />

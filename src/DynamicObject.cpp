@@ -1,8 +1,8 @@
 #include "DynamicObject.h"
 
+bool n = true;
 
-
-DynamicObject::DynamicObject(std::string DynConstrutor,b2Vec2 DynStartPos,b2World &World, float Density, float Friction, float Restitution, float Radius, float ScaleX, float ScaleY)
+DynamicObject::DynamicObject(std::string DynConstrutor,b2Vec2 DynStartPos,b2World &World, float Density, float Friction, float Restitution, float Radius, float ScaleX, float ScaleY, int i_Health, float rotation,std::string shape)
 {
 	DynTextureLoc = DynConstrutor;
 
@@ -10,13 +10,26 @@ DynamicObject::DynamicObject(std::string DynConstrutor,b2Vec2 DynStartPos,b2Worl
 		std::cout << "not loaded" << std::endl;
 	}
 	
+	if (i_Health <= 0)
+	{
+		b2_body->SetEnabled(false);
+		b2_body->GetWorld()->DestroyBody(b2_body);
+	}
+
+	
+	
+
 	DynSprite.setTexture(DynTexture);
 	DynSprite.setPosition(200.0f, 200.0f);
-	DynSprite.setScale(ScaleX,ScaleY);
+	DynSprite.setScale(ScaleX, ScaleY);
+	DynSprite.setRotation(rotation);
+	
 	
 	DynSprite.setOrigin(DynSprite.getLocalBounds().height / 2, DynSprite.getLocalBounds().width / 2); //Sets the origin to the center of the sprite
 
 	b2_dynamicCircle.m_radius = Radius;
+
+	
 
 	b2_bodyDef.type = b2_dynamicBody;
 	b2_bodyDef.position = DynStartPos;
@@ -25,7 +38,22 @@ DynamicObject::DynamicObject(std::string DynConstrutor,b2Vec2 DynStartPos,b2Worl
 	
 
 	//setup fixtures
-	b2_fixtureDef.shape = &b2_dynamicCircle;
+	if (shape == "circle")
+	{
+		b2_fixtureDef.shape = &b2_dynamicCircle;
+	}
+	else 
+	{
+		b2PolygonShape boxShape;
+		boxShape.SetAsBox(84.0f / 2.0f / Scale, 10.0f / 2.0f / Scale);
+
+		static b2PolygonShape safeBox;
+		safeBox = boxShape;
+
+		b2_fixtureDef.shape = &safeBox;
+ 
+	}
+	
 	b2_fixtureDef.density = Density;
 	b2_fixtureDef.friction = Friction;
 	b2_fixtureDef.restitution = Restitution;
@@ -45,9 +73,11 @@ void DynamicObject::update()
 
 void DynamicObject::UpdateSprite() 
 {
-	DynSprite.setPosition(sf::Vector2(b2_body->GetPosition().x * Scale, b2_body->GetPosition().y * Scale));
+	DynSprite.setPosition(sf::Vector2(b2_body->GetPosition().x * Scale, b2_body->GetPosition().y * Scale));//updates position
+	DynSprite.setRotation(b2_body->GetAngle() * 180 / b2_pi);//Update rotation
 	
 }
+
 
 
 

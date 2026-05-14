@@ -30,6 +30,9 @@
     <ClInclude Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\include\StaticObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\Blocks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\CMakeLists.txt" />
