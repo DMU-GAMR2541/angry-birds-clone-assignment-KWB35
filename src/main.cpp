@@ -8,7 +8,7 @@
 
 int main() {
     // --- 1. WINDOW SETUP ---
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Annoyed_Flocks");
+    sf::RenderWindow window(sf::VideoMode(1000, 800), "Annoyed_Flocks");
     window.setFramerateLimit(60);
 
     //Box2D works in meters. SFML works in pixels.
@@ -20,13 +20,7 @@ int main() {
     //Creates the mouse position variable
     float MousePosX;
     float MousePosY;
-    
 
-    //Sets the position for the bird to be reset
-    const b2Vec2 SlingshotPos = b2Vec2(100.0f / SCALE , 500.0f / SCALE);
-
-    //Have the bird reset back to this velocity
-    const b2Vec2 ResetVel = b2Vec2(0, 0);
 
 
 
@@ -43,25 +37,25 @@ int main() {
 
     //Define a fixture shape that relates to the collision for the ground.
     b2PolygonShape b2_groundBox;
-    b2_groundBox.SetAsBox(400.0f / SCALE, 10.0f / SCALE);
+    b2_groundBox.SetAsBox(1000.0f / SCALE, 10.0f / SCALE);
     b2_groundBody->CreateFixture(&b2_groundBox, 0.0f);
 
     //Set up the ground visualisation.
-    sf::RectangleShape sf_groundVisual(sf::Vector2f(800.0f, 20.0f));
+    sf::RectangleShape sf_groundVisual(sf::Vector2f(1000.0f, 300.0f));
     sf_groundVisual.setOrigin(400.0f, 10.0f);
     sf_groundVisual.setFillColor(sf::Color(34, 139, 34)); // Forest Green
 
     //Setting up a wall for the ball to hit.
     b2BodyDef b2_wallDef;
-    b2_wallDef.position.Set(750.0f / SCALE, 500.0f / SCALE);
+    b2_wallDef.position.Set(995.0f / SCALE, 0.0f / SCALE);
     b2Body* b2_wallBody = world.CreateBody(&b2_wallDef);
 
 
     b2PolygonShape b2_wallBox;
-    b2_wallBox.SetAsBox(10.0f / SCALE, 80.0f / SCALE);
+    b2_wallBox.SetAsBox(10.0f / SCALE, 800.0f / SCALE);
     b2_wallBody->CreateFixture(&b2_wallBox, 0.0f);
 
-    sf::RectangleShape sf_wallVisual(sf::Vector2f(20.0f, 160.0f));
+    sf::RectangleShape sf_wallVisual(sf::Vector2f(20.0f, 750.0f));
     sf_wallVisual.setOrigin(10.0f, 80.0f);
     sf_wallVisual.setFillColor(sf::Color::Red);
 
@@ -101,45 +95,82 @@ int main() {
     //Makes the pigs 
     std::list<std::unique_ptr<Pig>> PigVariant;
 
-    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/angry-birds-png-46187.png", b2Vec2(500.0f / SCALE, 450.0f / SCALE), world, 1.0f, 4.0f, 0.5f, 0.5f));
-    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/angry-birds-png-46187.png", b2Vec2(600.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 0.8f));
-
+    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/angry-birds-png-46187.png", b2Vec2(500.0f / SCALE, 450.0f / SCALE), world, 1.0f, 4.0f, 0.5f, 1.0f,0.15f,0.15f));
+    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/PigKing.png", b2Vec2(600.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 1.6f,0.6f,0.6f));
+    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/PigSprite_5.png", b2Vec2(800.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 1.3f, 0.7f, 0.8f));
 
     std::list<std::unique_ptr<Bird>> BirdVariant;
 
+    BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/birds-png-3514.png", b2Vec2(100.0f / SCALE, 500.0f / SCALE), world, 0.7f, 4.0f, 0.5f, 1.0f,0.08f,0.08f));
+    BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/angry-birds-png-46169.png", b2Vec2(20.0f / SCALE, 500.0f / SCALE), world, 2.0f, 4.0f, 0.5f, 0.5f, 0.04f, 0.03f));
+    BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/angry-birds-png-46179.png", b2Vec2(20.0f / SCALE, 500.0f / SCALE), world, 0.7f, 4.0f, 0.5f, 1.0f, 0.06f, 0.06f));
+
+
+    sf::Vector2f slingshotOrigin(150.0f, 500.0f);
+    float maxDragDistanceX = 75.0f;
+    float maxDragDistanceY = 75.0f;
+    float launchStrength = 10.0f;
+
+    bool fired = false;
+    bool birdInAir = false;
+    bool isDragging = false;
+
+    Bird* tempBird = BirdVariant.front().get();
+    b2Body* tempBody = tempBird->getBody();
+    tempBody->SetTransform(b2Vec2(150.0f / SCALE,500.0f / SCALE), 0);
+    tempBody->SetType(b2_kinematicBody); //sets the loaded bird to a kinematic body that isnt affected by physics and thus remains in place
+    int currentBird = 0;
+    float waitingTime = 0.0f;
+    float waitingTimeThreshhold = 5.0f;
+    sf::Clock birdTimer;
     
-   
-
-    //Makes a Bird
-    Bird Bird1("../assets/Ang_Birds/birds-png-3514.png", b2Vec2(100.0f / SCALE, 500.0f / SCALE),world, 1.0f, 4.0f, 0.5f, 1.0f);//defines the birds variables 
-
 
     // --- 7. MAIN LOOP ---
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
 
-            if (event.type == sf::Event::MouseMoved) 
-            {
-                MousePosX = (event.mouseMove.x);
-                MousePosY = (event.mouseMove.y);
-            }
-
             if (event.type == sf::Event::Closed)
                 window.close();
 
             // INPUT HANDLING: Press Left Click to launch
-            if (event.type == sf::Event::MouseButtonPressed) {
-                if (event.key.code == sf::Mouse::Left) {
-
-
-                    Bird1.setVelocity(ResetVel);
-                    Bird1.setPosition(SlingshotPos,0);
+            if (event.type == sf::Event::MouseButtonPressed) 
+            {
+                if (event.key.code == sf::Mouse::Left) 
+                {
+                    if(currentBird < static_cast<int>(BirdVariant.size()) && !fired)
+                    {
+                        isDragging = true;
+                    }
                     
-                    
-                    Bird1.impulse(b2Vec2(MousePosX / 5, - MousePosY / 8), true); //Gets mouse position and sets the impulse to it divided by the specified scale
+                    //std::cout << "Firing!!!!" << std::endl;
+                }
+            }
 
-                    std::cout << "Firing!!!!" << std::endl;
+            if (event.type == sf::Event::MouseButtonReleased) 
+            {
+                if(event.key.code == sf::Mouse::Left)
+                {
+                    if (isDragging = true)
+                    {
+                        Bird* tempBird = BirdVariant.front().get();
+                        b2Body* tempBody = tempBird->getBody();
+
+                        sf::Vector2f birdPos(tempBody->GetPosition().x * SCALE, tempBody->GetPosition().y * SCALE);
+                        sf::Vector2f slingshotVector = slingshotOrigin - birdPos; 
+
+                        tempBody->SetType(b2_dynamicBody);//allows for physics to affect the bird as it is fired 
+
+                        tempBody->ApplyLinearImpulseToCenter(b2Vec2(slingshotVector.x * launchStrength / SCALE, slingshotVector.y * launchStrength / SCALE),true);
+
+                        
+                        isDragging = false; //Bird has been fired and thus is no longer being dragged
+                        //std::cout << isDragging <<std::endl;
+                        fired = true;
+                        birdTimer.restart(); 
+                        
+                    }
+
                 }
             }
 
@@ -149,9 +180,54 @@ int main() {
         // Update Physics
         world.Step(1.0f / 60.0f, 8, 3);
 
+        //Dragging System Set-Up
+        if (isDragging) 
+        {
+            Bird* tempBird = BirdVariant.front().get();
+            b2Body* tempBody = tempBird->getBody();
+
+            sf::Vector2i mousePos = sf::Mouse::getPosition(window); //Gets the current mouse position
+            sf::Vector2f mouseWorldPos(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y)); //Use static cast to convert to float
+            sf::Vector2f dragVector = mouseWorldPos - slingshotOrigin; //Calculate the vector from slingshot to the mouse
+
+            //Maxes the drag vector to the specified distnce of x and y
+            dragVector.x = std::clamp(dragVector.x, -maxDragDistanceX, maxDragDistanceY);
+            dragVector.y = std::clamp(dragVector.y, -maxDragDistanceY, maxDragDistanceX);
+
+            sf::Vector2f finalPos = slingshotOrigin + dragVector; //Calculate final Position of bird based on dragVector and slingshotOrigin
+
+            tempBody->SetTransform(b2Vec2(finalPos.x / SCALE, finalPos.y / SCALE), 0);
+        }
+
+        if (fired)
+        {
+            if (birdTimer.getElapsedTime().asSeconds() > waitingTimeThreshhold) 
+            {
+                fired = false;
+                BirdVariant.erase(BirdVariant.begin()); //deletes the front bird
+                tempBody->SetEnabled(false);
+                
+                 //reset the fired status to false, allows the next bird to be dragged and launched 
+
+                if (0 < BirdVariant.size())
+                {
+                    
+                    Bird* tempBird = BirdVariant.front().get(); //loads in the front bird which should have changed
+                    b2Body* tempBody = tempBird->getBody();
+
+                    tempBody->SetType(b2_kinematicBody);//sets the nect bird as a kinematic body
+                    tempBody->SetTransform(b2Vec2(slingshotOrigin.x / SCALE, slingshotOrigin.y / SCALE), 0); //Sends the new bird into the slingshot position 
+
+                    tempBody->SetLinearVelocity(b2Vec2(0, 0)); //Sets velocity to 0
+                    tempBody->SetAngularVelocity(0); //Sets angular velocity to 0
+
+                }
+            }
+        }
+
+
+
         //All of the visuals needs to be synced with the physics.
-
-
 
         //Static objects usually don't move, but we set the position once.
         sf_groundVisual.setPosition(b2_groundBody->GetPosition().x * SCALE, b2_groundBody->GetPosition().y * SCALE);
@@ -162,7 +238,8 @@ int main() {
         sf_plankVisual.setRotation(b2_plankBody->GetAngle() * (180.0f / PI));
 
 
-        Bird1.UpdateSprite();
+
+
 
 
         //Render all of the content at each frame. Remember you need to clear the screen each iteration or artefacts remain.
@@ -171,13 +248,18 @@ int main() {
         window.draw(sf_groundVisual);
         window.draw(sf_wallVisual);
         window.draw(sf_plankVisual);
-        Bird1.render(window);
+        //Bird1.render(window);
 
         //Renders and updates the pig variants 
         for (std::unique_ptr<Pig>& p : PigVariant) 
         {
             p->UpdateSprite();
             p->render(window);
+        }
+        for (std::unique_ptr<Bird>& b : BirdVariant)
+        {
+            b->UpdateSprite();
+            b->render(window);
         }
 
         window.display();

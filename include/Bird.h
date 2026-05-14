@@ -14,7 +14,7 @@ public:
 
 	};
 
-	Bird(std::string BirdLoc,  b2Vec2 BirdStartPos, b2World& World, float BirdDensity, float BirdFriction, float BirdRestitution, float BirdRadii) : DynamicObject(BirdLoc, BirdStartPos, World, BirdDensity, BirdFriction, BirdRestitution, BirdRadii) {};//passed so can use things from dynamic object
+	Bird(std::string BirdLoc,  b2Vec2 BirdStartPos, b2World& World, float BirdDensity, float BirdFriction, float BirdRestitution, float BirdRadii, float BScaleX, float BScaleY) : DynamicObject(BirdLoc, BirdStartPos, World, BirdDensity, BirdFriction, BirdRestitution, BirdRadii, BScaleX, BScaleY) {};//passed so can use things from dynamic object
 
 
 

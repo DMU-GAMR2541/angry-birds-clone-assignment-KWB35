@@ -2,17 +2,17 @@
 
 
 
-DynamicObject::DynamicObject(std::string DynConstrutor,b2Vec2 DynStartPos,b2World &World, float Density, float Friction, float Restitution, float Radius)
+DynamicObject::DynamicObject(std::string DynConstrutor,b2Vec2 DynStartPos,b2World &World, float Density, float Friction, float Restitution, float Radius, float ScaleX, float ScaleY)
 {
 	DynTextureLoc = DynConstrutor;
 
-	if (!DynTexture.loadFromFile(DynTextureLoc )) {
+	if (!DynTexture.loadFromFile(DynTextureLoc)) {
 		std::cout << "not loaded" << std::endl;
 	}
 	
 	DynSprite.setTexture(DynTexture);
 	DynSprite.setPosition(200.0f, 200.0f);
-	DynSprite.setScale(0.1,0.1);
+	DynSprite.setScale(ScaleX,ScaleY);
 	
 	DynSprite.setOrigin(DynSprite.getLocalBounds().height / 2, DynSprite.getLocalBounds().width / 2); //Sets the origin to the center of the sprite
 
@@ -22,6 +22,7 @@ DynamicObject::DynamicObject(std::string DynConstrutor,b2Vec2 DynStartPos,b2Worl
 	b2_bodyDef.position = DynStartPos;
 	//Create the body in the world
 	b2_body = World.CreateBody(&b2_bodyDef);
+	
 
 	//setup fixtures
 	b2_fixtureDef.shape = &b2_dynamicCircle;
@@ -39,6 +40,7 @@ void DynamicObject::render(sf::RenderWindow& GObjRenderWindow)
 
 void DynamicObject::update()
 {
+
 }
 
 void DynamicObject::UpdateSprite() 

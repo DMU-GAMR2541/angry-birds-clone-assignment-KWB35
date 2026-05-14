@@ -6,12 +6,14 @@ enum class PigSize;
 
 class Pig : public virtual DynamicObject {
 private:
+	int i_Health;
 
 protected:
-	int i_Health;
+
 	
 public:
 	Pig() = default;
 
-	Pig(std::string PigLoc, b2Vec2 PigStartPos, b2World &World, float PigDensity, float PigFriction, float PigRestitution, float PigRadii) : DynamicObject(PigLoc, PigStartPos, World, PigDensity, PigFriction, PigRestitution, PigRadii) {};//passed so can use things from dynamic object //Holds variable that control the spawned pigs key info 
+	Pig(std::string PigLoc, b2Vec2 PigStartPos, b2World &World, float PigDensity, float PigFriction, float PigRestitution, float PigRadii, float PScaleX,float PScaleY) : DynamicObject(PigLoc, PigStartPos, World, PigDensity, PigFriction, PigRestitution, PigRadii, PScaleX, PScaleY) {};//passed so can use things from dynamic object //Holds variable that control the spawned pigs key info 
+
 };
