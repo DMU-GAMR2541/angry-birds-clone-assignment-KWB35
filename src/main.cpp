@@ -6,6 +6,14 @@
 #include <list>
 #include "Blocks.h"
 
+#include "ContactListener.h"
+
+#include <filesystem>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+#include <memory>
+
 
 int main() {
     // --- 1. WINDOW SETUP ---
@@ -23,11 +31,12 @@ int main() {
     float MousePosY;
 
 
-
-
     //setup world.
     b2Vec2 b2_gravity(0.0f, 9.8f); // Earth-like gravity
     b2World world(b2_gravity);
+
+    ContactListener contactListener;
+    world.SetContactListener(&contactListener);
 
     //Setup ground for the circle to move / bounce on.
     //Needs to have a body definition and a body. We use a raw pointer for the b2Body as Box2d does the management itself.
@@ -97,9 +106,9 @@ int main() {
     //Makes the pigs 
     std::list<std::unique_ptr<Pig>> PigVariant;
 
-    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/angry-birds-png-46187.png", b2Vec2(500.0f / SCALE, 450.0f / SCALE), world, 1.0f, 4.0f, 0.5f, 1.0f,0.15f,0.15f,1,0.0f, "circle"));
-    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/PigKing.png", b2Vec2(600.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 1.6f,0.6f,0.6f,3,0.0f, "circle"));
-    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/PigSprite_5.png", b2Vec2(800.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 1.3f, 0.7f, 0.8f,2,0.0f, "circle"));
+    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/angry-birds-png-46187.png", b2Vec2(500.0f / SCALE, 450.0f / SCALE), world, 1.0f, 4.0f, 0.5f, 1.0f,0.15f,0.15f,1,0.0f, "circle",50));
+    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/PigKing.png", b2Vec2(600.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 1.6f,0.6f,0.6f,3,0.0f, "circle",120));
+    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/PigSprite_5.png", b2Vec2(800.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 1.3f, 0.7f, 0.8f,2,0.0f, "circle",80));
 
     std::list<std::unique_ptr<Bird>> BirdVariant;
 
@@ -109,8 +118,8 @@ int main() {
 
     std::list<std::unique_ptr<Blocks>> BlockVariant;
 
-    BlockVariant.push_back(std::make_unique<Blocks>("../assets/Ang_Birds/NicePng_angry-gamer-png_2299190.PNG", b2Vec2(700.0f / SCALE, 300.0f / SCALE), world, 1.f, 4.0f, 0.5f, 0.3f, 1.f, 1.f, 2, 180.0f, "rectangle"));
-
+    BlockVariant.push_back(std::make_unique<Blocks>("../assets/Ang_Birds/NicePng_angry-gamer-png_2299190.PNG", b2Vec2(700.0f / SCALE, 300.0f / SCALE), world, 1.f, 4.0f, 0.5f, 0.3f,1.2f, 1.2f, 2, 90.0f, "rectangle"));
+    BlockVariant.push_back(std::make_unique<Blocks>("../assets/Ang_Birds/NicePng_angry-gamer-png_2299190.PNG", b2Vec2(700.0f / SCALE, 300.0f / SCALE), world, 1.f, 4.0f, 0.5f, 0.3f, 1.2f, 1.2f, 2, 0.0f, "rectangle"));
 
 
     sf::Vector2f slingshotOrigin(150.0f, 500.0f);
@@ -151,7 +160,7 @@ int main() {
                 {
                     if(currentBird < static_cast<int>(BirdVariant.size()) && !fired)
                     {
-                        isDragging = true;
+                        isDragging = true;//start dragging when left mouse is pressed
                     }
                     
                     //std::cout << "Firing!!!!" << std::endl;
@@ -168,17 +177,17 @@ int main() {
                         b2Body* tempBody = tempBird->getBody();
 
                         sf::Vector2f birdPos(tempBody->GetPosition().x * SCALE, tempBody->GetPosition().y * SCALE);
-                        sf::Vector2f slingshotVector = slingshotOrigin - birdPos; 
+                        sf::Vector2f slingshotVector = slingshotOrigin - birdPos; //calculates the vector of the birds position and the slingshot origin to find the force to preppel forwards with
 
                         tempBody->SetType(b2_dynamicBody);//allows for physics to affect the bird as it is fired 
 
-                        tempBody->ApplyLinearImpulseToCenter(b2Vec2(slingshotVector.x * launchStrength / SCALE, slingshotVector.y * launchStrength / SCALE),true);
+                        tempBody->ApplyLinearImpulseToCenter(b2Vec2(slingshotVector.x * launchStrength / SCALE, slingshotVector.y * launchStrength / SCALE),true);//applies impulse firing the bird
 
                         
                         isDragging = false; //Bird has been fired and thus is no longer being dragged
                         //std::cout << isDragging <<std::endl;
                         fired = true;
-                        birdTimer.restart(); 
+                        birdTimer.restart(); //rests timer
                         
                     }
 
@@ -192,6 +201,21 @@ int main() {
 
         // Update Physics
         world.Step(1.0f / 60.0f, 8, 3);
+
+        PigVariant.erase(std::remove_if(PigVariant.begin(), PigVariant.end(), [&](std::unique_ptr<Pig>& pig)
+            {
+                if (pig->destroyed)
+                {
+                    if (pig->getBody())
+                    {
+                        world.DestroyBody(pig->getBody());
+                        pig->setBody(nullptr);
+                    }
+                    return true;
+                }
+                return false;
+            }),
+            PigVariant.end());
 
 
         

@@ -24,7 +24,9 @@ public:
 	virtual ~DynamicObject() = default;
 
 	//overload constructor
-	DynamicObject(std::string DynConstrutor, b2Vec2 DynStartPos, b2World &World, float Density, float Friction, float Restitution, float Radius, float ScaleX, float ScaleY, int i_Health, float rotation, std::string shape);
+	DynamicObject(std::string DynConstrutor, b2Vec2 DynStartPos, b2World &World, float Density, float Friction, float Restitution, float Radius, float ScaleX, float ScaleY, int i_Health, float rotation = 0.0f, std::string shape);
+
+	void setBody(b2Body* body);
 
 	void render(sf::RenderWindow& GObjRenderWindow) override;
 	void update() override;
@@ -38,6 +40,7 @@ public:
 	void setPosition(b2Vec2 ResetPos,float Angle) { b2_body->SetTransform(ResetPos, Angle); }; //allows for an objects position to be reset 
 	void setVelocity(b2Vec2 ResetVel) { b2_body->SetLinearVelocity(ResetVel); };//allows for an objects velocity to be reset
 	void getPosition() { b2_body->GetPosition(); };
+	
 	
 	b2Body* getBody() {return b2_body;};
 

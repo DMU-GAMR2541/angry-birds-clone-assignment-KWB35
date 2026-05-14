@@ -10,14 +10,6 @@ DynamicObject::DynamicObject(std::string DynConstrutor,b2Vec2 DynStartPos,b2Worl
 		std::cout << "not loaded" << std::endl;
 	}
 	
-	if (i_Health <= 0)
-	{
-		b2_body->SetEnabled(false);
-		b2_body->GetWorld()->DestroyBody(b2_body);
-	}
-
-	
-	
 
 	DynSprite.setTexture(DynTexture);
 	DynSprite.setPosition(200.0f, 200.0f);
@@ -36,6 +28,7 @@ DynamicObject::DynamicObject(std::string DynConstrutor,b2Vec2 DynStartPos,b2Worl
 	//Create the body in the world
 	b2_body = World.CreateBody(&b2_bodyDef);
 	
+	if (!b2_body)return;
 
 	//setup fixtures
 	if (shape == "circle")
@@ -59,6 +52,12 @@ DynamicObject::DynamicObject(std::string DynConstrutor,b2Vec2 DynStartPos,b2Worl
 	b2_fixtureDef.restitution = Restitution;
 
 	b2_body->CreateFixture(&b2_fixtureDef);
+}
+
+
+void DynamicObject::setBody(b2Body* body) 
+{
+	b2_body = body;
 }
 
 void DynamicObject::render(sf::RenderWindow& GObjRenderWindow)

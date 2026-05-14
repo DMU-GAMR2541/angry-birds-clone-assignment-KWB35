@@ -23,6 +23,10 @@ public:
 	virtual void render(sf::RenderWindow& GObjRenderWindow) = 0;
 	virtual void update() = 0; //fully virtual functions
 
+	virtual void TakeDamage(float damage);
+	bool destroyed = false;
+	float health = 0.0f;
+
 protected:
 	const float Scale = 30.0f;
 };
