@@ -1,6 +1,13 @@
 #include <gtest/gtest.h>
 #include "Enemy.h"
 #include "Slingshot.h"
+#include "DynamicObject.h"
+#include "StaticObject.h"
+#include "Bird.h"
+#include "Pig.h"
+#include "Blocks.h"
+#include "GameObject.h"
+ 
 
 /// <summary>
 ///Taken from the GoogleTest primer. 
@@ -104,6 +111,11 @@ TEST(Slingshot, pullBack_Test) {
     Slingshot s;
     EXPECT_TRUE(s.pullBack(30));
     EXPECT_EQ(s.getTension(), 30);
+}
+
+TEST(Bird, )
+{
+
 }
 
 

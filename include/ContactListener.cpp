@@ -13,16 +13,17 @@ static GameObject* GetObject(b2Body* b2_body)
 
 void ContactListener::BeginContact(b2Contact* contact)
 {
-	auto* objA = reinterpret_cast<GameObject*>(contact->GetFixtureA()->GetBody()->GetUserData().pointer);
+	auto* objA = reinterpret_cast<Pig*>(contact->GetFixtureA()->GetBody()->GetUserData().pointer);
 
-	auto* objB = reinterpret_cast<GameObject*>(contact->GetFixtureB()->GetBody()->GetUserData().pointer);
+	auto* objB = reinterpret_cast<Bird*>(contact->GetFixtureB()->GetBody()->GetUserData().pointer);
 
 	if (!objA || !objB) return;
 
 	float damage = 1.0f;
 
+
 	objA->TakeDamage(damage);
-	objB->TakeDamage(damage);
+	//objB->TakeDamage(damage);
 
 
 }

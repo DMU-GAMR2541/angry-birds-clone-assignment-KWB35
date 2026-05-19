@@ -1,6 +1,7 @@
 #pragma once
 #include "DynamicObject.h"
 #include <SFML/Graphics.hpp>
+#include "GameObject.h"
 
 
 class Pig : public virtual DynamicObject {//inherits from DynamicObject

@@ -2,7 +2,7 @@
 
 bool n = true;
 
-DynamicObject::DynamicObject(std::string DynConstrutor,b2Vec2 DynStartPos,b2World &World, float Density, float Friction, float Restitution, float Radius, float ScaleX, float ScaleY, int i_Health, float rotation = 0.0f,std::string shape)
+DynamicObject::DynamicObject(std::string DynConstrutor,b2Vec2 DynStartPos,b2World &World, float Density, float Friction, float Restitution, float Radius, float ScaleX, float ScaleY, int i_Health, float rotation,std::string shape)
 {
 	DynTextureLoc = DynConstrutor;
 
@@ -27,6 +27,7 @@ DynamicObject::DynamicObject(std::string DynConstrutor,b2Vec2 DynStartPos,b2Worl
 	b2_bodyDef.position = DynStartPos;
 	//Create the body in the world
 	b2_body = World.CreateBody(&b2_bodyDef);
+	
 	
 	if (!b2_body)return;
 

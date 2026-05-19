@@ -5,7 +5,6 @@
 #include "Bird.h"
 #include <list>
 #include "Blocks.h"
-
 #include "ContactListener.h"
 
 #include <filesystem>
@@ -140,10 +139,8 @@ int main() {
     float waitingTimeThreshhold = 5.0f;
     sf::Clock birdTimer;
    
- 
-    
 
-    // --- 7. MAIN LOOP ---
+    // --- 7. MAIN LOOP --- 
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -182,7 +179,7 @@ int main() {
                         tempBody->SetType(b2_dynamicBody);//allows for physics to affect the bird as it is fired 
 
                         tempBody->ApplyLinearImpulseToCenter(b2Vec2(slingshotVector.x * launchStrength / SCALE, slingshotVector.y * launchStrength / SCALE),true);//applies impulse firing the bird
-
+                        
                         
                         isDragging = false; //Bird has been fired and thus is no longer being dragged
                         //std::cout << isDragging <<std::endl;
@@ -193,8 +190,6 @@ int main() {
 
                 }
             }
-
-            
 
             
         }
@@ -216,8 +211,6 @@ int main() {
                 return false;
             }),
             PigVariant.end());
-
-
         
 
         //Dragging System Set-Up
@@ -282,9 +275,6 @@ int main() {
 
 
 
-
-
-
         //Render all of the content at each frame. Remember you need to clear the screen each iteration or artefacts remain.
         window.clear(sf::Color(135, 206, 235)); // Sky Blue
 
@@ -310,6 +300,7 @@ int main() {
             s->render(window);
         }
 
+        //std::cout<< world.GetGravity().y <<std::endl;
         window.display();
     }
 
