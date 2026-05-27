@@ -8,6 +8,7 @@
 #include "Blocks.h"
 #include "GameObject.h"
 #include <box2d/box2d.h>
+
  
 
 /// <summary>
@@ -45,13 +46,13 @@ protected:
 
         b2Vec2 b2_gravity(0.0f, 9.8f); b2World world(b2_gravity);
 
-        //BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/birds-png-3514.png", b2Vec2(100.0f / SCALE, 500.0f / SCALE), world, 0.7f, 4.0f, 0.5f, 1.0f, 0.08f, 0.08f, 100, 0, "circle"));
-        //BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/angry-birds-png-46169.png", b2Vec2(20.0f / SCALE, 500.0f / SCALE), world, 2.0f, 4.0f, 0.5f, 0.5f, 0.04f, 0.03f, 100, 0.0f, "circle"));
-        //BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/angry-birds-png-46179.png", b2Vec2(20.0f / SCALE, 500.0f / SCALE), world, 0.7f, 4.0f, 0.5f, 1.0f, 0.06f, 0.06f, 100, 0.0f, "circle"));
+        BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/birds-png-3514.png", b2Vec2(100.0f / SCALE, 500.0f / SCALE), world, 0.7f, 4.0f, 0.5f, 1.0f, 0.08f, 0.08f, 100, 0, "circle"));
+        BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/angry-birds-png-46169.png", b2Vec2(20.0f / SCALE, 500.0f / SCALE), world, 2.0f, 4.0f, 0.5f, 0.5f, 0.04f, 0.03f, 100, 0.0f, "circle"));
+        BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/angry-birds-png-46179.png", b2Vec2(20.0f / SCALE, 500.0f / SCALE), world, 0.7f, 4.0f, 0.5f, 1.0f, 0.06f, 0.06f, 100, 0.0f, "circle"));
 
-        //PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/angry-birds-png-46187.png", b2Vec2(500.0f / SCALE, 450.0f / SCALE), world, 1.0f, 4.0f, 0.5f, 1.0f, 0.15f, 0.15f, 1, 0.0f, "circle"));
-        //PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/PigKing.png", b2Vec2(600.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 1.6f, 0.6f, 0.6f, 3, 0.0f, "circle"));
-        //PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/PigSprite_5.png", b2Vec2(800.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 1.3f, 0.7f, 0.8f, 2, 0.0f, "circle"));
+        PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/angry-birds-png-46187.png", b2Vec2(500.0f / SCALE, 450.0f / SCALE), world, 1.0f, 4.0f, 0.5f, 1.0f, 0.15f, 0.15f, 1, 0.0f, "circle"));
+        PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/PigKing.png", b2Vec2(600.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 1.6f, 0.6f, 0.6f, 3, 0.0f, "circle"));
+        PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/PigSprite_5.png", b2Vec2(800.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 1.3f, 0.7f, 0.8f, 2, 0.0f, "circle"));
 
                  
     }
@@ -97,6 +98,10 @@ protected:
     {
         b2Vec2 b2_gravity(0.0f, 9.8f); b2World world(b2_gravity);
         
+
+        BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/birds-png-3514.png", b2Vec2(100.0f / SCALE, 500.0f / SCALE), world, 0.7f, 4.0f, 0.5f, 1.0f, 0.08f, 0.08f, 100, 0, "circle"));
+        BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/angry-birds-png-46169.png", b2Vec2(20.0f / SCALE, 500.0f / SCALE), world, 2.0f, 4.0f, 0.5f, 0.5f, 0.04f, 0.03f, 100, 0.0f, "circle"));
+        BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/angry-birds-png-46179.png", b2Vec2(20.0f / SCALE, 500.0f / SCALE), world, 0.7f, 4.0f, 0.5f, 1.0f, 0.06f, 0.06f, 100, 0.0f, "circle"));
     }
 
     ~BirdTest() override {}
@@ -118,6 +123,7 @@ class PigTest : public testing::Test
 {
 public:
     std::list<std::unique_ptr<Pig>> PigVariant;
+    
     //setup world.
     b2Vec2 b2_gravity; // Earth-like gravity
     b2World world;
@@ -172,6 +178,7 @@ TEST(Slingshot,Tension_check) {
 
 TEST_F(BirdTest, birdTextureLoading_Test) //Does the testure for the sprite load
 {
+    
     Bird& b = *BirdVariant.front(); //pulls the bird prome the front of the list
     const sf::Texture* texture = b.getSprite().getTexture(); //get the texture
     ASSERT_NE(texture, nullptr);
@@ -179,6 +186,14 @@ TEST_F(BirdTest, birdTextureLoading_Test) //Does the testure for the sprite load
 
 TEST_F(EnemyTest, pigTextureLoading_Test) //Does the testure for the sprite load
 {
+    
+    //for ()
+    //{
+    //    Pig& p = *PigVariant.front(); //pulls the pig prome the front of the list
+    //    const sf::Texture* texture = p.getSprite().getTexture(); //get the texture
+    //    ASSERT_NE(texture, nullptr);
+
+    //};
     Pig& p = *PigVariant.front(); //pulls the pig prome the front of the list
     const sf::Texture* texture = p.getSprite().getTexture(); //get the texture
     ASSERT_NE(texture, nullptr);
