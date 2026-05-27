@@ -27,16 +27,12 @@ public:
     std::list<std::unique_ptr<Blocks>> BlockVariant;
 
 
-
-
     //setup world.
     b2Vec2 b2_gravity; // Earth-like gravity
     b2World world; 
     const float SCALE = 30.0f;
 
-    
-     
-
+  
 protected:
     // You can remove any or all of the following functions if their bodies would
     // be empty.
@@ -45,15 +41,6 @@ protected:
         // You can do set-up work for each test here.
 
         b2Vec2 b2_gravity(0.0f, 9.8f); b2World world(b2_gravity);
-
-        BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/birds-png-3514.png", b2Vec2(100.0f / SCALE, 500.0f / SCALE), world, 0.7f, 4.0f, 0.5f, 1.0f, 0.08f, 0.08f, 100, 0, "circle"));
-        BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/angry-birds-png-46169.png", b2Vec2(20.0f / SCALE, 500.0f / SCALE), world, 2.0f, 4.0f, 0.5f, 0.5f, 0.04f, 0.03f, 100, 0.0f, "circle"));
-        BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/angry-birds-png-46179.png", b2Vec2(20.0f / SCALE, 500.0f / SCALE), world, 0.7f, 4.0f, 0.5f, 1.0f, 0.06f, 0.06f, 100, 0.0f, "circle"));
-
-        PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/angry-birds-png-46187.png", b2Vec2(500.0f / SCALE, 450.0f / SCALE), world, 1.0f, 4.0f, 0.5f, 1.0f, 0.15f, 0.15f, 1, 0.0f, "circle"));
-        PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/PigKing.png", b2Vec2(600.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 1.6f, 0.6f, 0.6f, 3, 0.0f, "circle"));
-        PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/PigSprite_5.png", b2Vec2(800.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 1.3f, 0.7f, 0.8f, 2, 0.0f, "circle"));
-
                  
     }
 
@@ -84,71 +71,7 @@ protected:
 };
 
 
-class BirdTest : public testing::Test
-{
-public:
-    std::list<std::unique_ptr<Bird>> BirdVariant;
-    //setup world.
-    b2Vec2 b2_gravity; // Earth-like gravity
-    b2World world;
-    const float SCALE = 30.0f;
 
-protected:
-    BirdTest() : b2_gravity(0.0f, 9.8f), world(b2_gravity)
-    {
-        b2Vec2 b2_gravity(0.0f, 9.8f); b2World world(b2_gravity);
-        
-
-        BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/birds-png-3514.png", b2Vec2(100.0f / SCALE, 500.0f / SCALE), world, 0.7f, 4.0f, 0.5f, 1.0f, 0.08f, 0.08f, 100, 0, "circle"));
-        BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/angry-birds-png-46169.png", b2Vec2(20.0f / SCALE, 500.0f / SCALE), world, 2.0f, 4.0f, 0.5f, 0.5f, 0.04f, 0.03f, 100, 0.0f, "circle"));
-        BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/angry-birds-png-46179.png", b2Vec2(20.0f / SCALE, 500.0f / SCALE), world, 0.7f, 4.0f, 0.5f, 1.0f, 0.06f, 0.06f, 100, 0.0f, "circle"));
-    }
-
-    ~BirdTest() override {}
-
-    void birdUpdate()
-    {
-        for (std::unique_ptr<Bird>& b : BirdVariant)
-        {
-            b->UpdateSprite();
-
-        }
-
-    };
-
-};
-
-
-class PigTest : public testing::Test
-{
-public:
-    std::list<std::unique_ptr<Pig>> PigVariant;
-    
-    //setup world.
-    b2Vec2 b2_gravity; // Earth-like gravity
-    b2World world;
-    const float SCALE = 30.0f;
-
-protected:
-    PigTest() : b2_gravity(0.0f, 9.8f), world(b2_gravity)
-    {
-        b2Vec2 b2_gravity(0.0f, 9.8f); b2World world(b2_gravity);
-
-    }
-
-    ~PigTest() override {}
-
-    void birdUpdate()
-    {
-        for (std::unique_ptr<Pig>& p : PigVariant)
-        {
-            p->UpdateSprite();
-
-        }
-
-    };
-
-};
 
 
 
@@ -173,33 +96,6 @@ TEST(Slingshot,Tension_check) {
     FAIL() << "Test Failed";*/
 }
 
-//AnnoyedFlocks Testing
-
-
-TEST_F(BirdTest, birdTextureLoading_Test) //Does the testure for the sprite load
-{
-    
-    Bird& b = *BirdVariant.front(); //pulls the bird prome the front of the list
-    const sf::Texture* texture = b.getSprite().getTexture(); //get the texture
-    ASSERT_NE(texture, nullptr);
-}
-
-TEST_F(EnemyTest, pigTextureLoading_Test) //Does the testure for the sprite load
-{
-    
-    //for ()
-    //{
-    //    Pig& p = *PigVariant.front(); //pulls the pig prome the front of the list
-    //    const sf::Texture* texture = p.getSprite().getTexture(); //get the texture
-    //    ASSERT_NE(texture, nullptr);
-
-    //};
-    Pig& p = *PigVariant.front(); //pulls the pig prome the front of the list
-    const sf::Texture* texture = p.getSprite().getTexture(); //get the texture
-    ASSERT_NE(texture, nullptr);
-}
-
-//End of Annoyed flocks testing
 
 class ParamTest : public ::testing::TestWithParam<int> {
 protected:
@@ -247,10 +143,161 @@ TEST(Slingshot, pullBack_Test) {
 
 //AnnoyedFlocks Testing
 
+class BirdTest : public testing::Test
+{
+public:
+    std::list<std::unique_ptr<Bird>> BirdVariant;
+    //setup world.
+    b2Vec2 b2_gravity; // Earth-like gravity
+    b2World world;
+    const float SCALE = 30.0f;
+
+protected:
+    BirdTest() : b2_gravity(0.0f, 9.8f), world(b2_gravity)
+    {
+        b2Vec2 b2_gravity(0.0f, 9.8f); b2World world(b2_gravity);
 
 
+        BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/birds-png-3514.png", b2Vec2(100.0f / SCALE, 500.0f / SCALE), world, 0.7f, 4.0f, 0.5f, 1.0f, 0.08f, 0.08f, 100, 0, "circle"));
+        BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/angry-birds-png-46169.png", b2Vec2(20.0f / SCALE, 500.0f / SCALE), world, 2.0f, 4.0f, 0.5f, 0.5f, 0.04f, 0.03f, 100, 0.0f, "circle"));
+        BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/angry-birds-png-46179.png", b2Vec2(20.0f / SCALE, 500.0f / SCALE), world, 0.7f, 4.0f, 0.5f, 1.0f, 0.06f, 0.06f, 100, 0.0f, "circle"));
+    }
 
-//end of my tests
+    ~BirdTest() override {}
+
+    void birdUpdate()
+    {
+        for (std::unique_ptr<Bird>& b : BirdVariant)
+        {
+            b->UpdateSprite();
+
+        }
+
+    };
+
+};
+
+
+class PigTest : public testing::Test
+{
+public:
+    std::list<std::unique_ptr<Pig>> PigVariant;
+
+    //setup world.
+    b2Vec2 b2_gravity; // Earth-like gravity
+    b2World world;
+    const float SCALE = 30.0f;
+
+protected:
+    PigTest() : b2_gravity(0.0f, 9.8f), world(b2_gravity)
+    {
+        b2Vec2 b2_gravity(0.0f, 9.8f); b2World world(b2_gravity);
+
+        PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/angry-birds-png-46187.png", b2Vec2(500.0f / SCALE, 450.0f / SCALE), world, 1.0f, 4.0f, 0.5f, 1.0f, 0.15f, 0.15f, 1, 0.0f, "circle"));
+        PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/PigKing.png", b2Vec2(600.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 1.6f, 0.6f, 0.6f, 3, 0.0f, "circle"));
+        PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/PigSprite_5.png", b2Vec2(800.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 1.3f, 0.7f, 0.8f, 2, 0.0f, "circle"));
+
+    }
+
+    ~PigTest() override {}
+
+    void pigUpdate()
+    {
+        for (std::unique_ptr<Pig>& p : PigVariant)
+        {
+            p->UpdateSprite();
+
+        }
+
+    };
+
+};
+
+class BirdParamTest : public ::testing::TestWithParam<b2Vec2> {
+public:
+    std::list<std::unique_ptr<Bird>> BirdVariant;
+    //setup world.
+    b2Vec2 b2_gravity; // Earth-like gravity
+    b2World world;
+    const float SCALE = 30.0f;
+protected:
+    BirdParamTest() : b2_gravity(0.0f, 9.8f), world(b2_gravity)
+    {
+        BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/birds-png-3514.png", b2Vec2(100.0f / SCALE, 500.0f / SCALE), world, 0.7f, 4.0f, 0.5f, 1.0f, 0.08f, 0.08f, 100, 0, "circle"));
+        BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/angry-birds-png-46169.png", b2Vec2(20.0f / SCALE, 500.0f / SCALE), world, 2.0f, 4.0f, 0.5f, 0.5f, 0.04f, 0.03f, 100, 0.0f, "circle"));
+        BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/angry-birds-png-46179.png", b2Vec2(20.0f / SCALE, 500.0f / SCALE), world, 0.7f, 4.0f, 0.5f, 1.0f, 0.06f, 0.06f, 100, 0.0f, "circle"));
+    };
+    ~BirdParamTest() = default;
+
+    void SetUp() override {
+        //Code her will be called immediately after the constructer (right before each test
+
+    }
+
+    void TearDown() override {
+
+    }
+};
+
+INSTANTIATE_TEST_SUITE_P(
+    Simple,
+    BirdParamTest, ::testing::Values( b2Vec2(20.0,10.0), b2Vec2(40.0,10.0), b2Vec2(60.0,10.0), b2Vec2(90.0,10.0))
+);
+
+TEST_F(BirdTest, birdTextureLoading_Test) //Does the testure for the sprite load
+{
+    Bird& b = *BirdVariant.front(); //pulls the bird prome the front of the list
+    EXPECT_TRUE(b.textureLoaded);
+    
+}
+
+TEST_F(PigTest, pigTextureLoading_Test) //Does the testure for the sprite load
+{
+    Pig& p = *PigVariant.front(); //pulls the pig prome the front of the list
+    EXPECT_TRUE(p.textureLoaded);
+
+}
+
+TEST_P(BirdParamTest, birdMovement_Test) //test the correctness of bird movement across a spread of values
+{
+    b2Vec2 ptImpulse = GetParam();
+    b2Vec2 prevPos;
+
+    
+
+    Bird* bird = BirdVariant.front().get();
+    b2Body* body = bird->getBody();
+
+    b2Vec2 startPos = body->GetPosition();
+
+    body->ApplyLinearImpulseToCenter(b2Vec2(ptImpulse), true);
+
+    for (int i = 0; i < 60; ++i)
+    {
+        world.Step(1.0f / 60.0f ,8,3);
+    }
+
+    b2Vec2 endPos = body->GetPosition();
+
+    b2Vec2 disTravelled = (endPos - startPos);
+    
+    EXPECT_GT(disTravelled.x,prevPos.x);
+    EXPECT_GT(disTravelled.x,ptImpulse.x * 0.1f);
+
+   
+    prevPos = endPos;
+}
+
+//TEST(BirdTest, BirdtoPigDistance_Test)
+//{
+//
+//    Bird* bird = BirdVariant.front().get();
+//    b2Body* bBody = bird->getBody();
+//
+//    EXPECT_TRUE();
+//}
+
+//End of Annoyed flocks testing
 
 int main(int argc, char** argv) {
     testing::InitGoogleTest(&argc, argv);

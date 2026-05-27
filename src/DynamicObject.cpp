@@ -6,9 +6,11 @@ DynamicObject::DynamicObject(std::string DynConstrutor,b2Vec2 DynStartPos,b2Worl
 {
 	DynTextureLoc = DynConstrutor;
 
-	if (!DynTexture.loadFromFile(DynTextureLoc)) {
+	textureLoaded = DynTexture.loadFromFile(DynTextureLoc);
+	if (!textureLoaded) {
 		std::cout << "not loaded" << std::endl;
 	}
+
 	
 
 	DynSprite.setTexture(DynTexture);
