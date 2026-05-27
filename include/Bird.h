@@ -14,16 +14,12 @@ public:
 
 	Bird(std::string BirdLoc, b2Vec2 BirdStartPos, b2World& World, float BirdDensity, float BirdFriction, float BirdRestitution, float BirdRadii, float BScaleX, float BScaleY, int birdHealth, float birdRotation, std::string birdShape);
 
-	
-	void fire(b2Vec2 impulse);
 	b2Body* getBody();
 
 	void TakeDamage(float damage) override;
 
 	bool loaded = true;
 	bool fired = false;
-
-
 
 
 };

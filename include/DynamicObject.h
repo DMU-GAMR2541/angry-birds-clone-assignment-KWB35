@@ -49,6 +49,10 @@ public:
 	b2Body* getBody() {return b2_body;};
 
 
+	//For Testing
+	sf::Sprite getSprite() { return DynSprite; }
+	sf::Texture getTexture() { return DynTexture; }
+	//end of for testing
 protected:
 	b2Body* b2_body; //the body for the object in the box2D physics engine
 };
