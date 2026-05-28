@@ -304,23 +304,25 @@ TEST_P(BirdParamTest, birdMovement_Test) //test the correctness of bird movement
 
 TEST_F(BirdTest, BirdtoPigDistance_Test) //Test distance from bird to the pigs 
 {
-
-    Bird* bird = BirdVariant.front().get();
-    b2Body* bBody = bird->getBody();
-
-    b2Body* pBody = PigVariant.front().get()->getBody();
+    BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/birds-png-3514.png", b2Vec2(100.0f / SCALE, 500.0f / SCALE), world, 0.7f, 4.0f, 0.5f, 1.0f, 0.08f, 0.08f, 100, 0, "circle"));
+   
+    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/angry-birds-png-46187.png", b2Vec2(100.0f / SCALE, 500.0f / SCALE), world, 1.0f, 4.0f, 0.5f, 1.0f, 0.15f, 0.15f, 1, 0.0f, "circle"));
+    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/PigKing.png", b2Vec2(600.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 1.6f, 0.6f, 0.6f, 3, 0.0f, "circle"));
+    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/PigSprite_5.png", b2Vec2(800.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 1.3f, 0.7f, 0.8f, 2, 0.0f, "circle"));
+    PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/PigSprite_5.png", b2Vec2(800.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 1.3f, 0.7f, 0.8f, 2, 0.0f, "circle"));
 
     for (auto& b : BirdVariant)
     {
+        b2Body* bBody = b.get()->getBody();
         for (auto& p : PigVariant)
         {
-            
-            EXPECT_EQ(bBody->GetPosition(), pBody->GetPosition());
+            b2Body* pBody = p.get()->getBody();
+
+            EXPECT_EQ(bBody->GetPosition(), pBody->GetPosition()); 
             
         }
     }
-
-
+    
 }
 
 TEST(Pig, pigTakeDamage_Test)
@@ -329,6 +331,13 @@ TEST(Pig, pigTakeDamage_Test)
     p.maxHealth = 1;
     p.TakeDamage(1);
     EXPECT_TRUE(p.destroyed);
+}
+
+
+TEST(Pig, pig)
+{
+    Pig p;
+    p;
 }
 
 
