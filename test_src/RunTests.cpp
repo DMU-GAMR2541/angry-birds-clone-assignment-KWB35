@@ -323,6 +323,15 @@ TEST_F(BirdTest, BirdtoPigDistance_Test) //Test distance from bird to the pigs
 
 }
 
+TEST(Pig, pigTakeDamage_Test)
+{
+    Pig p;
+    p.maxHealth = 1;
+    p.TakeDamage(1);
+    EXPECT_TRUE(p.destroyed);
+}
+
+
 //End of Annoyed flocks testing
 
 int main(int argc, char** argv) {
