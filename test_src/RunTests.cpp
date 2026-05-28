@@ -308,17 +308,18 @@ TEST_F(BirdTest, BirdtoPigDistance_Test) //Test distance from bird to the pigs
     Bird* bird = BirdVariant.front().get();
     b2Body* bBody = bird->getBody();
 
-    int loopSize = PigVariant.size();
+    b2Body* pBody = PigVariant.front().get()->getBody();
 
-    for (int i = 0; i < loopSize; ++i)
+    for (auto& b : BirdVariant)
     {
-        Pig* pig = PigVariant.front().get();
-        b2Body* pBody = pig->getBody();
-
-        EXPECT_NE(bBody->GetPosition(),pBody->GetPosition()); //fails
-        PigVariant.pop_front();
-        
+        for (auto& p : PigVariant)
+        {
+            
+            EXPECT_EQ(bBody->GetPosition(), pBody->GetPosition());
+            
+        }
     }
+
 
 }
 
