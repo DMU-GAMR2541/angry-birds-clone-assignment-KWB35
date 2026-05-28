@@ -348,7 +348,38 @@ TEST(TextureTest, TextureLoading_Test)
     ASSERT_TRUE(loaded); //if fails fatal
 }
 
+TEST(PhysicsTest, physicsGravity_Test)
+{
+    b2Vec2 b2_gravity = b2Vec2(0, -9.8);
+    b2World world(b2_gravity);
 
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_dynamicBody;
+    bodyDef.position.Set(0.0f, 10.0f);
+    b2Body* body = world.CreateBody(&bodyDef);
+    b2PolygonShape shape;
+    shape.SetAsBox(0.5f, 0.5f);
+
+    b2FixtureDef fixDef;
+
+    fixDef.shape = &shape;
+    fixDef.density = 1.0f;
+    body->CreateFixture(&fixDef);
+
+    float initY = body->GetPosition().y;
+    float initVelY = body->GetLinearVelocity().y;
+
+    for (int i = 0; i < 60; ++i)
+    {
+        world.Step(1.0f / 60.0f, 8, 3);
+    }
+
+    float finalY = body->GetPosition().y;
+    float finalVelY = body->GetLinearVelocity().y;
+
+    EXPECT_LT(finalVelY,initVelY );
+    EXPECT_LT(finalY,initY);
+}
 //End of Annoyed flocks testing
 
 int main(int argc, char** argv) {
