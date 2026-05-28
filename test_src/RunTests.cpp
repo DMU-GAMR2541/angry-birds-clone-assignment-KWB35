@@ -8,6 +8,7 @@
 #include "Blocks.h"
 #include "GameObject.h"
 #include <box2d/box2d.h>
+#include "ContactListener.h"
 
  
 
@@ -227,6 +228,8 @@ class BirdParamTest : public ::testing::TestWithParam<b2Vec2> {
 public:
     
     std::list<std::unique_ptr<Bird>> BirdVariant;
+
+    std::list<std::unique_ptr<Pig>> PigVariant;
     //setup world.
     b2Vec2 b2_gravity; // Earth-like gravity
     b2World world;
@@ -238,6 +241,9 @@ protected:
         BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/angry-birds-png-46169.png", b2Vec2(20.0f / SCALE, 500.0f / SCALE), world, 2.0f, 4.0f, 0.5f, 0.5f, 0.04f, 0.03f, 100, 0.0f, "circle"));
         BirdVariant.push_back(std::make_unique<Bird>("../assets/Ang_Birds/angry-birds-png-46179.png", b2Vec2(20.0f / SCALE, 500.0f / SCALE), world, 0.7f, 4.0f, 0.5f, 1.0f, 0.06f, 0.06f, 100, 0.0f, "circle"));
 
+        PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/angry-birds-png-46187.png", b2Vec2(500.0f / SCALE, 450.0f / SCALE), world, 1.0f, 4.0f, 0.5f, 1.0f, 0.15f, 0.15f, 1, 0.0f, "circle"));
+        PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/PigKing.png", b2Vec2(600.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 1.6f, 0.6f, 0.6f, 3, 0.0f, "circle"));
+        PigVariant.push_back(std::make_unique<Pig>("../assets/Ang_Birds/PigSprite_5.png", b2Vec2(800.0f / SCALE, 450.0f / SCALE), world, 0.5f, 4.0f, 0.5f, 1.3f, 0.7f, 0.8f, 2, 0.0f, "circle"));
 
      
     };
@@ -258,6 +264,9 @@ INSTANTIATE_TEST_SUITE_P(
     BirdParamTest, ::testing::Values( b2Vec2(20.0,10.0), b2Vec2(40.0,10.0), b2Vec2(60.0,10.0), b2Vec2(90.0,10.0))
 );
 
+
+
+
 TEST_F(BirdTest, birdTextureLoading_Test) //Does the testure for the sprite load
 {
     Bird& b = *BirdVariant.front(); //pulls the bird prome the front of the list
@@ -276,8 +285,6 @@ TEST_P(BirdParamTest, birdMovement_Test) //test the correctness of bird movement
 {
     b2Vec2 ptImpulse = GetParam();
     b2Vec2 prevPos;
-
-    
 
     Bird* bird = BirdVariant.front().get();
     b2Body* body = bird->getBody();
@@ -298,7 +305,6 @@ TEST_P(BirdParamTest, birdMovement_Test) //test the correctness of bird movement
     EXPECT_GT(disTravelled.x,prevPos.x);
     EXPECT_GT(disTravelled.x,ptImpulse.x * 0.1f);
 
-   
     prevPos = endPos;
 }
 
@@ -314,12 +320,12 @@ TEST_F(BirdTest, BirdtoPigDistance_Test) //Test distance from bird to the pigs
     for (auto& b : BirdVariant)
     {
         b2Body* bBody = b.get()->getBody();
+
         for (auto& p : PigVariant)
         {
             b2Body* pBody = p.get()->getBody();
 
             EXPECT_EQ(bBody->GetPosition(), pBody->GetPosition()); 
-            
         }
     }
     
@@ -333,11 +339,13 @@ TEST(Pig, pigTakeDamage_Test)
     EXPECT_TRUE(p.destroyed);
 }
 
-
-TEST(Pig, pig)
+//Texture Loading test
+TEST(TextureTest, TextureLoading_Test)
 {
-    Pig p;
-    p;
+    sf::Texture texture;
+
+    bool loaded = texture.loadFromFile("../assets/Ang_Birds/Angry_Birds.png");
+    ASSERT_TRUE(loaded); //if fails fatal
 }
 
 

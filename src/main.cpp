@@ -124,6 +124,22 @@ int main() {
 
 
     sf::Vector2f slingshotOrigin(150.0f, 500.0f);
+
+
+    sf::IntRect catapultRect(58, 533, 78, 196);
+
+
+    sf::Texture catapultTexture; catapultTexture.loadFromFile("../assets/Ang_Birds/Angry_Birds_Spritesheet_Blocks.png");
+
+    sf::Sprite catapultSprite;
+    //setting scale
+    catapultSprite.setScale(0.7f, 0.7f);
+    catapultSprite.setTexture(catapultTexture);
+    catapultSprite.setTextureRect(catapultRect);
+    catapultSprite.setPosition(slingshotOrigin.x, slingshotOrigin.y + 20); // adjust offset
+    catapultSprite.setOrigin(catapultRect.width / 2.f, catapultRect.height / 2.f);
+
+
     float maxDragDistanceX = 75.0f;
     float maxDragDistanceY = 75.0f;
     float launchStrength = 10.0f;
@@ -283,6 +299,7 @@ int main() {
         window.draw(sf_groundVisual);
         window.draw(sf_wallVisual);
         window.draw(sf_plankVisual);
+        window.draw(catapultSprite);
         
 
         //Renders and updates the pig variants 
