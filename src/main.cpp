@@ -6,6 +6,7 @@
 #include <list>
 #include "Blocks.h"
 #include "ContactListener.h"
+#include "MultiThreading.h"
 
 #include <filesystem>
 #include <vector>
@@ -15,6 +16,8 @@
 
 
 int main() {
+    MultiThreading gameThread;
+
     // --- 1. WINDOW SETUP ---
     sf::RenderWindow window(sf::VideoMode(1000, 800), "Annoyed_Flocks");
     window.setFramerateLimit(60);
@@ -101,6 +104,7 @@ int main() {
 
     b2CircleShape b2_dynamicCircle; //The shape of the object in the Box2D physics engine defined as a circle
 
+    MultiThreading loading;
 
     //Makes the pigs 
     std::list<std::unique_ptr<Pig>> PigVariant;
@@ -127,18 +131,20 @@ int main() {
 
 
     sf::IntRect catapultRect(58, 533, 78, 196);
-
-
-    sf::Texture catapultTexture; catapultTexture.loadFromFile("../assets/Ang_Birds/Angry_Birds_Spritesheet_Blocks.png");
+    sf::Texture catapultTexture; catapultTexture.loadFromFile("../assets/Ang_Birds/PigKing.png");
 
     sf::Sprite catapultSprite;
     //setting scale
     catapultSprite.setScale(0.7f, 0.7f);
     catapultSprite.setTexture(catapultTexture);
-    catapultSprite.setTextureRect(catapultRect);
+    //catapultSprite.setTextureRect(catapultRect);
     catapultSprite.setPosition(slingshotOrigin.x, slingshotOrigin.y + 20); // adjust offset
     catapultSprite.setOrigin(catapultRect.width / 2.f, catapultRect.height / 2.f);
 
+    //Setting up load screen
+    sf::Texture loadScreenText; loadScreenText.loadFromFile("../assets/Ang_Birds/");
+    sf::Sprite loadScreenSprite;
+    catapultSprite.setTexture(loadScreenText);
 
     float maxDragDistanceX = 75.0f;
     float maxDragDistanceY = 75.0f;
@@ -165,8 +171,6 @@ int main() {
 
             if (event.type == sf::Event::Closed)
                 window.close();
-
-
 
             // INPUT HANDLING: Press Left Click to launch
             if (event.type == sf::Event::MouseButtonPressed)  
@@ -229,6 +233,21 @@ int main() {
                 return false;
             }),
             PigVariant.end());
+
+        BlockVariant.erase(std::remove_if(BlockVariant.begin(), BlockVariant.end(), [&](std::unique_ptr<Blocks>& block) //Destriyes the blocks when they run out of health
+            {
+                if (block->destroyed)
+                {
+                    if (block->getBody())
+                    {
+                        world.DestroyBody(block->getBody());
+                        block->setBody(nullptr);
+                    }
+                    return true;
+                }
+                return false;
+            }),
+            BlockVariant.end());
         
 
         //Dragging System Set-Up
@@ -258,11 +277,11 @@ int main() {
                 BirdVariant.erase(BirdVariant.begin()); //deletes the front bird
                 tempBody->SetEnabled(false);
                 
+                
                  //reset the fired status to false, allows the next bird to be dragged and launched 
 
                 if (0 < BirdVariant.size())
                 {
-                    
                     Bird* tempBird = BirdVariant.front().get(); //loads in the front bird which should have changed
                     b2Body* tempBody = tempBird->getBody();
 
@@ -271,11 +290,24 @@ int main() {
 
                     tempBody->SetLinearVelocity(b2Vec2(0, 0)); //Sets velocity to 0
                     tempBody->SetAngularVelocity(0); //Sets angular velocity to 0
+                }
+                if (0 == BirdVariant.size())
+                {
+                    //Here to potentially display a game over screen
+                    if (0 == PigVariant.size())
+                    {
+                        //If all pigs are killed
+
+                    }
+                    if (0 < PigVariant.size())
+                    {
+                        //If you dont kill all the pigs
+                        
+                    }
 
                 }
             }
 
-            
         }
 
 
@@ -296,32 +328,44 @@ int main() {
         //Render all of the content at each frame. Remember you need to clear the screen each iteration or artefacts remain.
         window.clear(sf::Color(135, 206, 235)); // Sky Blue
 
-        window.draw(sf_groundVisual);
-        window.draw(sf_wallVisual);
-        window.draw(sf_plankVisual);
-        window.draw(catapultSprite);
-        
+        if (loading.getProgress() < 100.0f) //has to laod prior to the agme being able to be rendered
+        {
+            std::cout << "Loading: " << loading.getProgress() << "%" << std::endl;
+            window.draw(loadScreenSprite);
+        }
+        else
+        {
+            window.draw(sf_groundVisual);
+            window.draw(sf_wallVisual);
+            window.draw(sf_plankVisual);
+            window.draw(catapultSprite);
 
-        //Renders and updates the pig variants 
-        for (std::unique_ptr<Pig>& p : PigVariant) 
-        {
-            p->UpdateSprite();
-            p->render(window);
+
+            //Renders and updates the pig variants 
+            for (std::unique_ptr<Pig>& p : PigVariant)
+            {
+                p->UpdateSprite();
+                p->render(window);
+            }
+            for (std::unique_ptr<Bird>& b : BirdVariant)
+            {
+                b->UpdateSprite();
+                b->render(window);
+            }
+            for (std::unique_ptr<Blocks>& s : BlockVariant)
+            {
+                s->UpdateSprite();
+                s->render(window);
+            }
         }
-        for (std::unique_ptr<Bird>& b : BirdVariant)
-        {
-            b->UpdateSprite();
-            b->render(window);
-        }
-        for (std::unique_ptr<Blocks>& s : BlockVariant)
-        {
-            s->UpdateSprite();
-            s->render(window);
-        }
+        
+       
 
         //std::cout<< world.GetGravity().y <<std::endl;
         window.display();
     }
+
+    
 
     return 0;
 }

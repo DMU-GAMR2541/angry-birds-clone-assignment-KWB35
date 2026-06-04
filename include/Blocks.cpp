@@ -17,5 +17,6 @@ void Blocks::TakeDamage(float damage)
 	{
 		std::cout << "block destroyed" << std::endl;
 		destroyed = true;
+
 	}
 }
