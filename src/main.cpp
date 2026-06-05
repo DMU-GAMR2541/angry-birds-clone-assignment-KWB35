@@ -7,7 +7,9 @@
 #include "Blocks.h"
 #include "ContactListener.h"
 #include "MultiThreading.h"
+#include "StaticObject.h"
 
+#include <set>
 #include <filesystem>
 #include <vector>
 #include <algorithm>
@@ -131,20 +133,23 @@ int main() {
 
 
     sf::IntRect catapultRect(58, 533, 78, 196);
-    sf::Texture catapultTexture; catapultTexture.loadFromFile("../assets/Ang_Birds/PigKing.png");
+    sf::Texture catapultTexture; 
+    catapultTexture.loadFromFile("../assets/Ang_Birds/Slingshot.png");
+    
 
     sf::Sprite catapultSprite;
     //setting scale
-    catapultSprite.setScale(0.7f, 0.7f);
+    catapultSprite.setScale(0.4f, 0.4f);
     catapultSprite.setTexture(catapultTexture);
     //catapultSprite.setTextureRect(catapultRect);
     catapultSprite.setPosition(slingshotOrigin.x, slingshotOrigin.y + 20); // adjust offset
     catapultSprite.setOrigin(catapultRect.width / 2.f, catapultRect.height / 2.f);
+    
 
     //Setting up load screen
-    sf::Texture loadScreenText; loadScreenText.loadFromFile("../assets/Ang_Birds/");
+    sf::Texture loadScreenText; loadScreenText.loadFromFile("../assets/Ang_Birds/NewProject.png"); //texture made in Photopea
     sf::Sprite loadScreenSprite;
-    catapultSprite.setTexture(loadScreenText);
+    loadScreenSprite.setTexture(loadScreenText);
 
     float maxDragDistanceX = 75.0f;
     float maxDragDistanceY = 75.0f;
@@ -330,11 +335,18 @@ int main() {
 
         if (loading.getProgress() < 100.0f) //has to laod prior to the agme being able to be rendered
         {
-            std::cout << "Loading: " << loading.getProgress() << "%" << std::endl;
+            
+            //std::cout << "Loading: " << loading.getProgress() << "%" << std::endl;
             window.draw(loadScreenSprite);
+
+            //StaticObject staticObject(sf::Vector2f(300, 100), "Angry Bird", "../assets/fonts/angry-birds.ttf");
+            //staticObject.render(window); //Not working code to add text to the screen was going to display percentage of loading screen
+           
         }
         else
         {
+            
+
             window.draw(sf_groundVisual);
             window.draw(sf_wallVisual);
             window.draw(sf_plankVisual);
@@ -359,7 +371,7 @@ int main() {
             }
         }
         
-       
+
 
         //std::cout<< world.GetGravity().y <<std::endl;
         window.display();

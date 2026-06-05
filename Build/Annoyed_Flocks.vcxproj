@@ -416,6 +416,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="..\include\Blocks.cpp" />
     <ClCompile Include="..\include\ContactListener.cpp" />
     <ClCompile Include="..\include\Pigs.cpp" />
+    <ClCompile Include="..\include\StaticObject.cpp" />
     <ClCompile Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\src\DynamicObject.cpp" />
     <ClCompile Include="C:\Users\kianb\Documents\University Work\angry-birds-clone-assignment-KWB35\src\main.cpp" />
     <ClInclude Include="..\include\MultiThreading.h" />

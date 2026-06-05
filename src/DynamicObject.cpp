@@ -58,12 +58,12 @@ DynamicObject::DynamicObject(std::string DynConstrutor,b2Vec2 DynStartPos,b2Worl
 	b2_fixtureDef.restitution = Restitution;
 
 	b2_body->CreateFixture(&b2_fixtureDef);
-	while (loading.getProgress() < 100)
+	/*while (loading.getProgress() < 100)
 	{
 		std::cout << "Loading: " << loading.getProgress() << "%" << std::endl;
 		b2_body->SetEnabled(false);
 	}
-	b2_body->SetEnabled(true);
+	b2_body->SetEnabled(true);*/
 }
 
 
